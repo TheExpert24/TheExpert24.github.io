@@ -1,12 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Pronto Sucks. BroPro FTW</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BroPro Tech</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #0f1115;
+            color: #e4e4e4;
+        }
+
+        header {
+            background-color: #1a1d23;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #00ffcc;
+        }
+
+        nav a {
+            color: #e4e4e4;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #00ffcc;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(to right, #111318, #1d2129);
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #00ffcc;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 60px 20px;
+            background-color: #15171c;
+        }
+
+        .feature {
+            background-color: #1f2127;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 15px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            color: #00ffcc;
+            margin-top: 0;
+        }
+
+        footer {
+            background-color: #1a1d23;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello. Anybody want to arm wrestle me at grad? if so, please type in pronto "yes vj. i want to arm wrestle you!"</h1>
-    <img src="images/Sigma.png" alt="Image" width="800" lenght = "400">
-    <img src="images/profilepic%20(1).png" alt="Image" width="800" lenght = "400">
-    <h2>My calves are so sigma</h2>
+
+    <header>
+        <h1>BroPro Tech</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Next-Level Innovation</h2>
+        <p>Building future-forward tech solutions with style, speed, and sigma energy. Join the BroPro movement.</p>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <h3>💡 Smart Solutions</h3>
+            <p>We design intelligent tools that automate the boring stuff and boost productivity.</p>
+        </div>
+        <div class="feature">
+            <h3>⚡ Blazing Fast</h3>
+            <p>Optimized performance, lightning speed — because slow is the enemy of progress.</p>
+        </div>
+        <div class="feature">
+            <h3>🔒 Secure By Default</h3>
+            <p>Privacy-first architecture that respects users and protects data like a vault.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 BroPro Tech. All rights reserved.
+    </footer>
+
 </body>
 </html>
