@@ -1,148 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tech Company</title>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Arial', sans-serif;
-            background-color: #001f3d; /* Navy Blue background for entire page */
-            color: #fff; /* Default text color */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <img src="images/thelogo.png" alt="Image">
+  <title>SafeComms Incorporated</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      background-color: #001f3d;
+      color: #fff;
+    }
 
-        header {
-            background-color: #001f3d;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
+    header {
+      background-color: #001f3d;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-        }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
 
-        nav {
-            background-color: #3399ff;
-            padding: 10px;
-            text-align: center;
-        }
+    nav {
+      background-color: #3399ff;
+      padding: 10px;
+      text-align: center;
+      flex-wrap: wrap;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2rem;
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 15px;
+      font-size: 1.2rem;
+      display: inline-block;
+    }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-        .hero {
-            background-color: #001f3d;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
+    .hero {
+      background-color: #001f3d;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
 
-        .hero h2 {
-            font-size: 3rem;
-            margin: 0;
-        }
+    .hero h2 {
+      font-size: 3rem;
+      margin: 0;
+    }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-top: 20px;
-        }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
 
-        .services {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 50px 20px;
-            background-color: #001f3d;
-        }
+    .hero img {
+      margin-top: 40px;
+      width: 700px;
+      max-width: 90%;
+      height: auto;
+    }
 
-        .service-card {
-            background-color: #3399ff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            width: 30%;
-            min-width: 250px;
-            text-align: center;
-        }
+    .services {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 50px 20px;
+      background-color: #001f3d;
+      flex-wrap: nowrap;
+    }
 
-        .service-card h3 {
-            font-size: 1.8rem;
-            color: #001f3d;
-        }
+    .service-card {
+      background-color: #3399ff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 300px;
+      text-align: center;
+      flex-shrink: 0;
+    }
 
-        .service-card p {
-            font-size: 1.1rem;
-            color: #fff;
-        }
+    .service-card h3 {
+      font-size: 1.8rem;
+      color: #001f3d;
+    }
 
-        footer {
-            background-color: #001f3d;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+    .service-card p {
+      font-size: 1.1rem;
+      color: #fff;
+    }
 
-        footer p {
-            margin: 0;
-        }
-    </style>
+    footer {
+      background-color: #001f3d;
+      color: white;
+      text-align: center;
+      padding: 20px 0 0 0;
+    }
+
+    .footer-divider {
+      height: 5px;
+      background-color: #3399ff;
+      margin: 10px auto;
+      width: 80%;
+      border-radius: 3px;
+    }
+
+    footer p {
+      margin: 10px 0;
+    }
+
+    @media (max-width: 1024px) {
+      .services {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>SafeComms Incorporated</h1>
-    </header>
+  <header>
+    <h1>SafeComms Incorporated</h1>
+  </header>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">DACMO-Works</a>
-        <a href="#services">The Mod Bot Beta 1</a>
-        <a href="#services">Current Products</a>
-        <a href="#services">Pronto API Projects</a>
-        <a href="#contact">Contact Us</a>
-    </nav>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">DACMO-Works</a>
+    <a href="#services">The Mod Bot Beta 1</a>
+    <a href="#services">Current Products</a>
+    <a href="#services">Pronto API Related Products</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
 
-    <section class="hero">
-        <h2>A Pioneer in Chat Techonology since 2024</h2>
-        <p>Pushing technology to its limits with a goal to revoltionize communications via chat platforms.</p>
-        <img src="images/thelogo.png" alt="Image" width="700" lenght = "700">
-    </section>
+  <section class="hero">
+    <h2>A Pioneer in Chat Technology since 2024</h2>
+    <p>SafeComms Incorporated was founded to revolutionize communication via chat. We create new chat APIs and GUIs for the greater public with more features and faster responses as well as make Bots and Extensions with more features that improve user experience on chats that implement our bots. We push technology to its limits with a goal to revolutionize communications via chat platforms. Check us out in our "About us" page. Welcome to SafeComms Incorporated!</p>
+    <img src="images/thelogo.png" alt="SafeComms Logo">
+  </section>
 
-    <section id="services" class="services">
-        <div class="service-card">
-            <h3>Cloud Solutions</h3>
-            <p>Scalable and secure cloud services to enhance your business operations.</p>
-        </div>
-        <div class="service-card">
-            <h3>Data Analytics</h3>
-            <p>Harness the power of data to make smarter business decisions.</p>
-        </div>
-        <div class="service-card">
-            <h3>AI & Automation</h3>
-            <p>Drive innovation with artificial intelligence and machine learning.</p>
-        </div>
-    </section>
+  <section id="services" class="services">
+    <div class="service-card">
+      <h3>Dedication</h3>
+      <p>Our Users and Clients are our number one priority. All of our products are designed for the users' satisfaction and approval.</p>
+    </div>
+    <div class="service-card">
+      <h3>Quality</h3>
+      <p>All our APIs and Chat GUIs are designed to run without any fault. All products are heavily tested and pushed beyond their limits before being put on the market.</p>
+    </div>
+    <div class="service-card">
+      <h3>Efficiency and Technology</h3>
+      <p>Using cutting edge technology to create our chat platforms and Pronto API extensions, every feature and aspect will be engineered to run as smoothly and as user friendly as possible.</p>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; SafeComms Incorporated. All rights reserved.</p>
-        <p>Designed and Built in Silicon Valley, California, and Talahassee, FLorida</p>
-    </footer>
+  <footer>
+    <p>&copy; SafeComms Incorporated. All rights reserved.</p>
+    <div class="footer-divider"></div>
+    <p>Designed and Built in Silicon Valley, California, and Tallahassee, Florida With Love for the Greater World of Communication</p>
+  </footer>
 
 </body>
 </html>
