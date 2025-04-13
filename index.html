@@ -6,15 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tech Company</title>
     <style>
-        body {
+        html, body {
             margin: 0;
+            padding: 0;
+            height: 100%;
             font-family: 'Arial', sans-serif;
-            background-color: #f4f7fa;
-            color: #333;
+            background-color: #001f3d; /* Navy Blue background for entire page */
+            color: #fff; /* Default text color */
         }
 
         header {
-            background-color: #001f3d; /* Navy Blue */
+            background-color: #001f3d;
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -26,7 +28,7 @@
         }
 
         nav {
-            background-color: #3399ff; /* Lighter Blue */
+            background-color: #3399ff;
             padding: 10px;
             text-align: center;
         }
@@ -43,7 +45,7 @@
         }
 
         .hero {
-            background-color: #001f3d; /* Navy Blue */
+            background-color: #001f3d;
             color: white;
             padding: 100px 20px;
             text-align: center;
@@ -62,16 +64,19 @@
         .services {
             display: flex;
             justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
             padding: 50px 20px;
-            background-color: #001f3d; /* Navy Blue */
+            background-color: #001f3d;
         }
 
         .service-card {
-            background-color: #3399ff; /* Lighter Blue */
+            background-color: #3399ff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 30px;
             width: 30%;
+            min-width: 250px;
             text-align: center;
         }
 
@@ -86,7 +91,7 @@
         }
 
         footer {
-            background-color: #001f3d; /* Navy Blue */
+            background-color: #001f3d;
             color: white;
             text-align: center;
             padding: 20px;
