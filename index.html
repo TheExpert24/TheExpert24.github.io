@@ -9,8 +9,7 @@
       --primary: #001f3d;
       --accent: #3399ff;
       --white: #ffffff;
-      --glass-bg: rgba(0, 31, 61, 0.7);
-      --glow-color: rgba(51, 153, 255, 0.7);
+      --glass-bg: rgba(0, 31, 61, 0.6);
     }
 
     * {
@@ -20,14 +19,13 @@
     }
 
     html, body {
-      font-family: 'Orbitron', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: var(--primary);
       color: var(--white);
       overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
-    /* === Subtle Gradient Background === */
     body::before {
       content: '';
       position: fixed;
@@ -46,7 +44,6 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* === Header & Logo Styling === */
     header {
       text-align: center;
       padding: 50px 20px;
@@ -60,61 +57,61 @@
       padding: 20px 50px;
       border-radius: 10px;
       background: rgba(51, 153, 255, 0.15);
-      box-shadow: 0 0 40px rgba(51, 153, 255, 0.6);
+      box-shadow: 0 0 40px rgba(51, 153, 255, 0.4);
       animation: haloPulse 6s ease-in-out infinite;
     }
 
     .logo-container h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-weight: 700;
       background: linear-gradient(to right, #ffffff, var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 15px rgba(51, 153, 255, 0.6);
+    }
+
+    .logo-container a {
+      text-decoration: none;
     }
 
     @keyframes haloPulse {
       0%, 100% {
-        box-shadow: 0 0 40px rgba(51, 153, 255, 0.6);
+        box-shadow: 0 0 40px rgba(51, 153, 255, 0.4);
         transform: scale(1);
       }
       50% {
-        box-shadow: 0 0 80px rgba(51, 153, 255, 0.9);
+        box-shadow: 0 0 80px rgba(51, 153, 255, 0.7);
         transform: scale(1.05);
       }
     }
 
-    /* === Navigation Bar === */
     nav {
       position: sticky;
       top: 0;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
       background: var(--glass-bg);
-      padding: 20px 30px;
+      padding: 15px 30px;
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 25px;
       z-index: 999;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
     nav a {
       color: var(--white);
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 500;
       text-decoration: none;
-      padding: 8px 20px;
+      padding: 8px 14px;
       transition: all 0.3s ease;
       border-radius: 8px;
     }
 
     nav a:hover {
-      background-color: rgba(255,255,255,0.15);
+      background-color: rgba(255,255,255,0.1);
       transform: scale(1.1);
-      box-shadow: 0 0 12px var(--accent);
     }
 
-    /* === Hero Section === */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -124,30 +121,25 @@
       text-align: center;
       padding: 40px 20px;
       position: relative;
-      z-index: 1;
     }
 
     .glass-hero-box {
-      padding: 20px 50px;
+      padding: 20px 40px;
       border-radius: 20px;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 0 30px rgba(51, 153, 255, 0.3);
-      display: inline-block;
       margin-bottom: 30px;
       animation: fadeInUp 1.2s ease-out;
     }
 
     .glass-hero-box h2 {
-      font-size: 3.2rem;
-      font-weight: 700;
+      font-size: 2.8rem;
       background: linear-gradient(to right, #ffffff, #3399ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 10px rgba(51, 153, 255, 0.6);
-      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(51, 153, 255, 0.4);
     }
 
     .hero p {
@@ -155,7 +147,6 @@
       max-width: 800px;
       line-height: 1.6;
       animation: fadeInUp 1.4s ease-out;
-      text-shadow: 0 0 10px rgba(0, 31, 61, 0.5);
     }
 
     .hero img {
@@ -163,10 +154,9 @@
       width: 600px;
       max-width: 90%;
       animation: fadeInUp 1.6s ease-out;
-      filter: drop-shadow(0 0 20px rgba(51,153,255,0.6));
+      filter: drop-shadow(0 0 20px rgba(51,153,255,0.5));
     }
 
-    /* === Service Cards === */
     .services {
       padding: 100px 30px;
       display: flex;
@@ -185,12 +175,10 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       text-align: center;
       transition: all 0.4s ease;
-      transform-style: preserve-3d;
-      perspective: 1000px;
     }
 
     .service-card:hover {
-      transform: translateY(-15px) rotateX(3deg);
+      transform: translateY(-15px);
       box-shadow: 0 12px 40px rgba(51,153,255,0.4);
     }
 
@@ -198,8 +186,6 @@
       font-size: 1.8rem;
       color: var(--accent);
       margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
     .service-card p {
@@ -208,7 +194,42 @@
       line-height: 1.6;
     }
 
-    /* === Footer === */
+    .best-work {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: rgba(0, 31, 61, 0.9);
+    }
+
+    .best-work h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #ffffff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(51, 153, 255, 0.4);
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .video-box {
+      width: 80%;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(51, 153, 255, 0.3);
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+    }
+
     footer {
       padding: 60px 20px 40px;
       text-align: center;
@@ -217,48 +238,26 @@
       border-top: 2px solid var(--accent);
     }
 
-    .footer-divider {
-      width: 80%;
-      height: 5px;
-      background-color: var(--accent);
-      margin: 20px auto;
-      border-radius: 10px;
-    }
-
-    /* === Animations === */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
       .hero h2 {
         font-size: 2.2rem;
       }
-      .services {
-        flex-direction: column;
-        align-items: center;
+      .video-box iframe {
+        height: 250px;
       }
     }
-
   </style>
 </head>
 <body>
 
   <header>
     <div class="logo-container">
-      <h1>SafeComms Incorporated</h1>
+      <a href="index.html"><h1>SafeComms Incorporated</h1></a>
     </div>
   </header>
 
@@ -272,7 +271,7 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="glass-hero-box">
       <h2>A Pioneer in Chat Technology since 2024</h2>
     </div>
@@ -282,22 +281,35 @@
 
   <section id="services" class="services">
     <div class="service-card">
-      <h3>Dedication</h3>
-      <p>Our users are the heartbeat of our innovation. Every product is crafted with user satisfaction as our north star.</p>
+      <h3>Chat API Integration</h3>
+      <p>Integrate SafeComms chat solutions with your platforms for seamless communication.</p>
     </div>
     <div class="service-card">
-      <h3>Quality</h3>
-      <p>Our APIs and GUIs are built to be bulletproof. Rigorously tested and tuned for real-world conditions and performance.</p>
+      <h3>Mod Bot Beta 1</h3>
+      <p>Introducing the future of online moderation with our Mod Bot. Always online, always effective!</p>
     </div>
     <div class="service-card">
-      <h3>Efficiency & Tech</h3>
-      <p>With cutting-edge tech and smart architecture, our products run seamlessly to deliver the fastest and smoothest chat experiences.</p>
+      <h3>Custom GUIs</h3>
+      <p>Create beautiful and responsive chat interfaces with SafeComms custom-designed GUIs.</p>
+    </div>
+    <div class="service-card">
+      <h3>Pronto API</h3>
+      <p>Effortlessly integrate your product with the Pronto API and deliver faster results.</p>
+    </div>
+  </section>
+
+  <!-- Our Best Work Section -->
+  <section id="best-work" class="best-work">
+    <h2>Our Best Work</h2>
+    <div class="video-container">
+      <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/Us1GpnN-Ez0" allowfullscreen></iframe>
+      </div>
     </div>
   </section>
 
   <footer>
-    <div class="footer-divider"></div>
-    <p>&copy; SafeComms Incorporated. All rights reserved.</p>
+    <p>&copy; 2025 SafeComms Incorporated. All rights reserved.</p>
     <p>Built with ❤️ in Silicon Valley, California & Tallahassee, Florida. Dedicated to global innovation in communication.</p>
   </footer>
 
