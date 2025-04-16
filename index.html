@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SafeComms Incorporated</title>
   <style>
+    /* Global Styles */
     html, body {
       margin: 0;
       padding: 0;
@@ -12,6 +13,24 @@
       font-family: 'Arial', sans-serif;
       background-color: #001f3d;
       color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Keyframes for animations */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     header {
@@ -19,6 +38,7 @@
       color: white;
       padding: 20px 0;
       text-align: center;
+      animation: fadeIn 1.5s ease-in;
     }
 
     header h1 {
@@ -31,6 +51,7 @@
       padding: 10px;
       text-align: center;
       flex-wrap: wrap;
+      animation: fadeIn 2s ease-in;
     }
 
     nav a {
@@ -39,10 +60,12 @@
       margin: 10px 15px;
       font-size: 1.2rem;
       display: inline-block;
+      transition: transform 0.3s ease, text-decoration 0.3s ease;
     }
 
     nav a:hover {
       text-decoration: underline;
+      transform: scale(1.1);
     }
 
     .hero {
@@ -50,6 +73,7 @@
       color: white;
       padding: 100px 20px;
       text-align: center;
+      animation: fadeInUp 1.5s ease-out;
     }
 
     .hero h2 {
@@ -60,6 +84,9 @@
     .hero p {
       font-size: 1.2rem;
       margin-top: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero img {
@@ -67,6 +94,7 @@
       width: 700px;
       max-width: 90%;
       height: auto;
+      animation: fadeIn 2s ease-in;
     }
 
     .services {
@@ -75,17 +103,24 @@
       gap: 30px;
       padding: 50px 20px;
       background-color: #001f3d;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
     }
 
     .service-card {
       background-color: #3399ff;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       padding: 30px;
       width: 300px;
       text-align: center;
       flex-shrink: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     }
 
     .service-card h3 {
@@ -103,13 +138,14 @@
       color: white;
       text-align: center;
       padding: 20px 0 0 0;
+      animation: fadeIn 2s ease-in;
     }
 
     .footer-divider {
       height: 5px;
       background-color: #3399ff;
       margin: 10px auto;
-      width: 100%; /* Updated to full width */
+      width: 100%;
       border-radius: 3px;
     }
 
