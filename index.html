@@ -69,6 +69,21 @@
       -webkit-text-fill-color: transparent;
     }
 
+    .logo-container a {
+      text-decoration: none;
+    }
+
+    @keyframes haloPulse {
+      0%, 100% {
+        box-shadow: 0 0 40px rgba(51, 153, 255, 0.4);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 80px rgba(51, 153, 255, 0.7);
+        transform: scale(1.05);
+      }
+    }
+
     nav {
       position: sticky;
       top: 0;
@@ -105,6 +120,7 @@
       justify-content: center;
       text-align: center;
       padding: 40px 20px;
+      position: relative;
     }
 
     .glass-hero-box {
@@ -115,6 +131,7 @@
       backdrop-filter: blur(12px);
       box-shadow: 0 0 30px rgba(51, 153, 255, 0.3);
       margin-bottom: 30px;
+      animation: fadeInUp 1.2s ease-out;
     }
 
     .glass-hero-box h2 {
@@ -129,21 +146,15 @@
       font-size: 1.2rem;
       max-width: 800px;
       line-height: 1.6;
+      animation: fadeInUp 1.4s ease-out;
     }
 
     .hero img {
       margin-top: 40px;
       width: 600px;
       max-width: 90%;
+      animation: fadeInUp 1.6s ease-out;
       filter: drop-shadow(0 0 20px rgba(51,153,255,0.5));
-    }
-
-    .services-title {
-      text-align: center;
-      font-size: 1.6rem;
-      margin-bottom: 40px;
-      color: var(--accent);
-      text-shadow: 0 0 10px rgba(51, 153, 255, 0.5);
     }
 
     .services {
@@ -151,6 +162,25 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    .services-title {
+      margin-bottom: 40px;
+      font-size: 2rem;
+      padding: 15px 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(51, 153, 255, 0.3);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      background-image: linear-gradient(to right, #ffffff, var(--accent));
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 12px rgba(51, 153, 255, 0.25);
+      text-align: center;
+      max-width: 800px;
     }
 
     .service-card-container {
@@ -190,53 +220,90 @@
       line-height: 1.6;
     }
 
+    .best-work {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: rgba(0, 31, 61, 0.9);
+    }
+
+    .best-work h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #ffffff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(51, 153, 255, 0.4);
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .video-box {
+      width: 80%;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(51, 153, 255, 0.3);
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+    }
+
+    footer {
+      padding: 60px 20px 40px;
+      text-align: center;
+      font-size: 0.95rem;
+      background: rgba(0,0,0,0.5);
+      border-top: 2px solid var(--accent);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .popup-overlay {
       display: none;
       position: fixed;
       top: 0; left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
       justify-content: center;
       align-items: center;
       z-index: 1000;
+      overflow: hidden;
     }
 
     .popup-overlay::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(ellipse at center, #000 0%, #001f3d 100%);
-      z-index: -2;
-    }
-
-    .starry-background {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+      top: 0; left: 0;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, rgba(0, 31, 61, 0.5), rgba(51, 153, 255, 0.1), rgba(0, 31, 61, 0.5));
+      background-size: 400% 400%;
+      animation: popupGlassFlow 25s ease infinite;
       z-index: -1;
+      filter: blur(30px);
+      opacity: 0.7;
     }
 
-    .star {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: twinkle 2s infinite ease-in-out;
-    }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.2; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.2); }
+    @keyframes popupGlassFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .popup-content {
-      position: relative;
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.3);
       backdrop-filter: blur(15px);
@@ -247,10 +314,13 @@
       box-shadow: 0 10px 30px rgba(51, 153, 255, 0.4);
       color: #fff;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     .popup-content h3 {
       font-size: 1.6rem;
+      margin-bottom: 15px;
       color: var(--accent);
     }
 
@@ -268,27 +338,13 @@
       color: #fff;
     }
 
-    #sign-in {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      background-color: var(--accent);
-      color: var(--white);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    #sign-in:hover {
-      background-color: #0077cc;
-    }
-
-    footer {
-      padding: 60px 20px 40px;
-      text-align: center;
-      font-size: 0.95rem;
-      background: rgba(0,0,0,0.5);
-      border-top: 2px solid var(--accent);
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+      .video-box iframe {
+        height: 250px;
+      }
     }
   </style>
 </head>
@@ -314,59 +370,74 @@
   <div class="glass-hero-box">
     <h2>A Pioneer in Chat Technology since 2024</h2>
   </div>
-  <p>SafeComms Incorporated was founded to revolutionize communication via chat...</p>
+  <p>SafeComms Incorporated was founded to revolutionize communication via chat. We create new chat APIs and GUIs for the greater public with more features and faster responses, as well as Bots and Extensions to enhance user experience. We push technology to its limits to transform how people connect.</p>
   <img src="images/thelogo.png" alt="SafeComms Logo">
 </section>
 
 <section id="services" class="services">
-  <h2 class="services-title">Click on the service cards for more information</h2>
+  <div class="services-title">Click on the service cards for more information</div>
   <div class="service-card-container">
-    <div class="service-card" onclick="openPopup('Pronto Chat API Integration', 'Enhance communication with blazing speed and automated context delivery.')">Pronto Chat API Integration</div>
-    <div class="service-card" onclick="openPopup('Mod Bot Beta 1', 'The future of moderation. Real-time, AI-enhanced, no nonsense.')">Mod Bot Beta 1</div>
-    <div class="service-card" onclick="openPopup('Custom GUIs', 'Our GUIs are designed to create a user interface that brings reliability, quality, and technology all in one...')">Custom GUIs</div>
-    <div class="service-card" onclick="openPopup('API', 'SafeComms Incorporated has a close relationship with the Pronto API...<br><button id=\'sign-in\' onclick=\"location.href=\'/login\'\">Sign In</button>')">API</div>
+    <div class="service-card"><h3>Pronto Chat API Integration</h3><p>Integrate Pronto extensions to your Pronto API for seamless communication and overall improvement in your experience.</p></div>
+    <div class="service-card"><h3>Mod Bot Beta 1</h3><p>Introducing the future of online moderation and disciplinary action. </p></div>
+    <div class="service-card"><h3>Custom GUIs</h3><p>We create GUIs. Period. </p></div>
+    <div class="service-card"><h3>API</h3><p>Our APIs are designed to revolutionize how online communication is done today.</p></div>
   </div>
 </section>
 
-<div class="popup-overlay" id="popup">
-  <div class="starry-background" id="stars"></div>
+<section id="best-work" class="best-work">
+  <h2>Our Best Work</h2>
+  <div class="video-container">
+    <div class="video-box">
+      <iframe src="https://www.youtube.com/embed/Us1GpnN-Ez0" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 SafeComms Incorporated. All rights reserved.</p>
+  <p>Built with ❤️ in Silicon Valley, California & Tallahassee, Florida. Dedicated to global innovation in communication.</p>
+</footer>
+
+<!-- Popup Modal -->
+<div id="popup" class="popup-overlay">
   <div class="popup-content">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <span class="close-btn">&times;</span>
     <h3 id="popup-title"></h3>
     <p id="popup-text"></p>
   </div>
 </div>
 
-<footer>
-  <p>&copy; 2025 SafeComms Incorporated. All rights reserved.</p>
-  <p>Built with ❤️ in Silicon Valley, California & Tallahassee, Florida.</p>
-</footer>
-
 <script>
-  function openPopup(title, text) {
-    document.getElementById('popup-title').innerText = title;
-    document.getElementById('popup-text').innerHTML = text;
-    document.getElementById('popup').style.display = 'flex';
-    generateStars();
-  }
+  const popup = document.getElementById('popup');
+  const popupTitle = document.getElementById('popup-title');
+  const popupText = document.getElementById('popup-text');
+  const closeBtn = document.querySelector('.close-btn');
 
-  function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('stars').innerHTML = '';
-  }
+  const popupData = {
+    'Pronto Chat API Integration': "Our Pronto integration tools leverage adaptive infrastructure and hyper-scaling protocols to maximize real-time communication. Join our ecosystem today!",
+    'Mod Bot Beta 1': "The Mod Bot uses advanced AI moderation techniques to help communities stay safe, inclusive, and troll-free — all with minimal input from human admins.",
+    'Custom GUIs': "Our GUIs are designed to create a user interface that brings reliability, quality, and technology all in one. While making it easy to use, we integrate hundreds of features that not only make communication simple, but bring enjoyment and productivity to communication as well.",
+    'API': "SafeComms Incorporated has a close relationship with the Pronto API. However, we are not solely based on making products and GUIs that run on it. Currently, we are in the process of introducing a new GUI from DACMO-Works called BroPro. However, we aren't stopping there. We will soon begin work on our very own API. To follow our progress on any product or get updates, please sign up. Thank you!"
+  };
 
-  function generateStars() {
-    const container = document.getElementById('stars');
-    for (let i = 0; i < 80; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-      star.style.width = `${Math.random() * 2 + 1}px`;
-      star.style.height = star.style.width;
-      star.style.top = `${Math.random() * 100}%`;
-      star.style.left = `${Math.random() * 100}%`;
-      container.appendChild(star);
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const title = card.querySelector('h3').innerText;
+      popupTitle.innerText = title;
+      popupText.innerText = popupData[title] || "More details coming soon.";
+      popup.style.display = 'flex';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      popup.style.display = 'none';
     }
-  }
+  });
 </script>
 
 </body>
