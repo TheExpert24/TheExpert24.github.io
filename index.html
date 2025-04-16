@@ -26,7 +26,7 @@
       scroll-behavior: smooth;
     }
 
-    /* === Background Animation === */
+    /* === Background Gradient Animation === */
     body::before {
       content: '';
       position: fixed;
@@ -45,21 +45,43 @@
       100% { background-position: 0% 50%; }
     }
 
+    /* === Animated Logo Section === */
     header {
       text-align: center;
-      padding: 30px 20px;
+      padding: 50px 20px;
+      position: relative;
     }
 
-    header h1 {
-      font-size: 3.2rem;
-      letter-spacing: 1px;
+    .logo-container {
+      display: inline-block;
+      position: relative;
+      padding: 30px 60px;
+      border-radius: 20px;
+      background: rgba(51, 153, 255, 0.1);
+      box-shadow: 0 0 40px rgba(51, 153, 255, 0.4);
+      animation: haloPulse 6s ease-in-out infinite;
+    }
+
+    .logo-container h1 {
+      font-size: 3rem;
       font-weight: 700;
-      background: linear-gradient(to right, #fff, var(--accent));
+      background: linear-gradient(to right, #ffffff, var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: fadeIn 1.5s ease;
     }
 
+    @keyframes haloPulse {
+      0%, 100% {
+        box-shadow: 0 0 40px rgba(51, 153, 255, 0.4);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 80px rgba(51, 153, 255, 0.7);
+        transform: scale(1.05);
+      }
+    }
+
+    /* === Navigation Bar === */
     nav {
       position: sticky;
       top: 0;
@@ -225,7 +247,9 @@
 <body>
 
   <header>
-    <h1>SafeComms Incorporated</h1>
+    <div class="logo-container">
+      <h1>SafeComms Incorporated</h1>
+    </div>
   </header>
 
   <nav>
