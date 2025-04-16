@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SafeComms Incorporated</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #001f3d;
-      --accent: #3399ff;
+      --accent: #33ccff;
       --white: #ffffff;
       --glass-bg: rgba(0, 31, 61, 0.6);
     }
@@ -19,7 +20,7 @@
     }
 
     html, body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Orbitron', 'Segoe UI', sans-serif;
       background-color: var(--primary);
       color: var(--white);
       overflow-x: hidden;
@@ -172,7 +173,6 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
       border-radius: 15px;
-      box-shadow: 0 0 20px rgba(51, 153, 255, 0.3);
       color: transparent;
       background-clip: text;
       -webkit-background-clip: text;
@@ -184,40 +184,69 @@
     }
 
     .service-card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
     }
 
     .service-card {
-      width: 300px;
-      padding: 40px 30px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 20px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      text-align: center;
-      transition: all 0.4s ease;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 30px 25px;
+      backdrop-filter: blur(14px);
+      box-shadow:
+        inset 0 0 0 rgba(0, 0, 0, 0),
+        0 10px 30px rgba(0, 255, 255, 0.08),
+        0 0 25px rgba(51, 153, 255, 0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
       cursor: pointer;
     }
 
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(51, 153, 255, 0.15), rgba(255, 255, 255, 0.05));
+      transform: skewY(15deg);
+      transition: all 0.5s ease-in-out;
+      pointer-events: none;
+    }
+
+    .service-card:hover::before {
+      top: 100%;
+    }
+
     .service-card:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 12px 40px rgba(51,153,255,0.4);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow:
+        0 15px 40px rgba(0, 255, 255, 0.15),
+        0 0 40px rgba(51, 153, 255, 0.35);
     }
 
     .service-card h3 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
+      font-weight: 600;
       color: var(--accent);
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
     }
 
     .service-card p {
-      color: #d6f0ff;
       font-size: 1.05rem;
-      line-height: 1.6;
+      line-height: 1.5;
+      color: #e0f7ff;
+      text-shadow: 0 0 5px rgba(0, 255, 255, 0.05);
     }
 
     .best-work {
@@ -267,84 +296,6 @@
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    .popup-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      overflow: hidden;
-    }
-
-    .popup-overlay::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(120deg, rgba(0, 31, 61, 0.5), rgba(51, 153, 255, 0.1), rgba(0, 31, 61, 0.5));
-      background-size: 400% 400%;
-      animation: popupGlassFlow 25s ease infinite;
-      z-index: -1;
-      filter: blur(30px);
-      opacity: 0.7;
-    }
-
-    @keyframes popupGlassFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .popup-content {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(15px);
-      padding: 30px;
-      max-width: 500px;
-      width: 90%;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(51, 153, 255, 0.4);
-      color: #fff;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .popup-content h3 {
-      font-size: 1.6rem;
-      margin-bottom: 15px;
-      color: var(--accent);
-    }
-
-    .popup-content p {
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 2rem;
-      cursor: pointer;
-      color: #fff;
-    }
-
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 2.2rem;
-      }
-      .video-box iframe {
-        height: 250px;
-      }
     }
   </style>
 </head>
@@ -397,48 +348,6 @@
   <p>&copy; 2025 SafeComms Incorporated. All rights reserved.</p>
   <p>Built with ❤️ in Silicon Valley, California & Tallahassee, Florida. Dedicated to global innovation in communication.</p>
 </footer>
-
-<!-- Popup Modal -->
-<div id="popup" class="popup-overlay">
-  <div class="popup-content">
-    <span class="close-btn">&times;</span>
-    <h3 id="popup-title"></h3>
-    <p id="popup-text"></p>
-  </div>
-</div>
-
-<script>
-  const popup = document.getElementById('popup');
-  const popupTitle = document.getElementById('popup-title');
-  const popupText = document.getElementById('popup-text');
-  const closeBtn = document.querySelector('.close-btn');
-
-  const popupData = {
-    'Pronto Chat API Integration': "Our Pronto integration tools leverage adaptive infrastructure and hyper-scaling protocols to maximize real-time communication. Join our ecosystem today!",
-    'Mod Bot Beta 1': "The Mod Bot uses advanced AI moderation techniques to help communities stay safe, inclusive, and troll-free — all with minimal input from human admins.",
-    'Custom GUIs': "Our GUIs are designed to create a user interface that brings reliability, quality, and technology all in one. While making it easy to use, we integrate hundreds of features that not only make communication simple, but bring enjoyment and productivity to communication as well.",
-    'API': "SafeComms Incorporated has a close relationship with the Pronto API. However, we are not solely based on making products and GUIs that run on it. Currently, we are in the process of introducing a new GUI from DACMO-Works called BroPro. However, we aren't stopping there. We will soon begin work on our very own API. To follow our progress on any product or get updates, please sign up. Thank you!"
-  };
-
-  document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const title = card.querySelector('h3').innerText;
-      popupTitle.innerText = title;
-      popupText.innerText = popupData[title] || "More details coming soon.";
-      popup.style.display = 'flex';
-    });
-  });
-
-  closeBtn.addEventListener('click', () => {
-    popup.style.display = 'none';
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === popup) {
-      popup.style.display = 'none';
-    }
-  });
-</script>
 
 </body>
 </html>
