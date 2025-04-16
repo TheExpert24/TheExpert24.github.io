@@ -5,158 +5,177 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SafeComms Incorporated</title>
   <style>
-    /* Global Styles */
+    :root {
+      --primary: #001f3d;
+      --accent: #3399ff;
+      --white: #ffffff;
+      --card-bg: rgba(51, 153, 255, 0.1);
+    }
+
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: 'Arial', sans-serif;
-      background-color: #001f3d;
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* Keyframes for animations */
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--primary);
+      color: var(--white);
+      scroll-behavior: smooth;
     }
 
     header {
-      background-color: #001f3d;
-      color: white;
-      padding: 20px 0;
+      background-color: var(--primary);
+      padding: 30px 20px;
       text-align: center;
-      animation: fadeIn 1.5s ease-in;
+      animation: fadeIn 1.5s ease;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin: 0;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
 
     nav {
-      background-color: #3399ff;
-      padding: 10px;
-      text-align: center;
-      flex-wrap: wrap;
-      animation: fadeIn 2s ease-in;
+      background-color: var(--accent);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     nav a {
-      color: white;
+      color: var(--white);
       text-decoration: none;
-      margin: 10px 15px;
-      font-size: 1.2rem;
-      display: inline-block;
-      transition: transform 0.3s ease, text-decoration 0.3s ease;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      transition: all 0.3s ease;
+      border-radius: 6px;
     }
 
     nav a:hover {
-      text-decoration: underline;
-      transform: scale(1.1);
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
     }
 
     .hero {
-      background-color: #001f3d;
-      color: white;
-      padding: 100px 20px;
+      position: relative;
+      padding: 120px 20px 100px;
       text-align: center;
-      animation: fadeInUp 1.5s ease-out;
+      background: linear-gradient(to right, #001f3d, #002f5d);
+      animation: fadeInUp 1s ease-out;
     }
 
     .hero h2 {
-      font-size: 3rem;
-      margin: 0;
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #fff, #3399ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero p {
       font-size: 1.2rem;
-      margin-top: 20px;
       max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
     .hero img {
-      margin-top: 40px;
-      width: 700px;
+      margin-top: 50px;
+      width: 600px;
       max-width: 90%;
       height: auto;
       animation: fadeIn 2s ease-in;
+      filter: drop-shadow(0 0 10px rgba(51, 153, 255, 0.3));
     }
 
     .services {
       display: flex;
       justify-content: center;
       gap: 30px;
-      padding: 50px 20px;
-      background-color: #001f3d;
+      padding: 80px 30px;
+      background-color: var(--primary);
       flex-wrap: wrap;
     }
 
     .service-card {
-      background-color: #3399ff;
-      border-radius: 8px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      padding: 30px;
-      width: 300px;
-      text-align: center;
-      flex-shrink: 0;
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      padding: 40px 30px;
+      width: 320px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       animation: fadeInUp 1s ease-out;
     }
 
     .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+      transform: translateY(-12px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
     }
 
     .service-card h3 {
       font-size: 1.8rem;
-      color: #001f3d;
+      margin-bottom: 15px;
+      color: var(--accent);
     }
 
     .service-card p {
-      font-size: 1.1rem;
-      color: #fff;
+      font-size: 1.05rem;
+      color: #e0f0ff;
+      line-height: 1.6;
     }
 
     footer {
-      background-color: #001f3d;
-      color: white;
+      background-color: var(--primary);
+      color: var(--white);
       text-align: center;
-      padding: 20px 0 0 0;
+      padding: 40px 20px 20px;
+      font-size: 0.95rem;
       animation: fadeIn 2s ease-in;
     }
 
     .footer-divider {
       height: 5px;
-      background-color: #3399ff;
-      margin: 10px auto;
-      width: 100%;
+      background-color: var(--accent);
+      margin: 10px auto 20px;
+      width: 80%;
       border-radius: 3px;
     }
 
-    footer p {
-      margin: 10px 0;
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    @media (max-width: 1024px) {
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
       .services {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
@@ -193,8 +212,8 @@
       <p>All our APIs and Chat GUIs are designed to run without any fault. All products are heavily tested and pushed beyond their limits before being put on the market.</p>
     </div>
     <div class="service-card">
-      <h3>Efficiency and Technology</h3>
-      <p>Using cutting edge technology to create our chat platforms and Pronto API extensions, every feature and aspect will be engineered to run as smoothly and as user friendly as possible.</p>
+      <h3>Efficiency & Tech</h3>
+      <p>Using cutting edge technology to create our chat platforms and Pronto API extensions, every feature and aspect is engineered for speed, stability, and great user experience.</p>
     </div>
   </section>
 
