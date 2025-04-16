@@ -100,10 +100,26 @@
       position: relative;
     }
 
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      animation: fadeInUp 1s ease-out;
+    .glass-hero-box {
+      padding: 20px 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 0 30px rgba(51, 153, 255, 0.3);
+      display: inline-block;
+      margin-bottom: 30px;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .glass-hero-box h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #ffffff, #3399ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(51, 153, 255, 0.4);
     }
 
     .hero p {
@@ -223,7 +239,9 @@
   </nav>
 
   <section class="hero">
-    <h2>A Pioneer in Chat Technology since 2024</h2>
+    <div class="glass-hero-box">
+      <h2>A Pioneer in Chat Technology since 2024</h2>
+    </div>
     <p>SafeComms Incorporated was founded to revolutionize communication via chat. We create new chat APIs and GUIs for the greater public with more features and faster responses, as well as Bots and Extensions to enhance user experience. We push technology to its limits to transform how people connect.</p>
     <img src="images/thelogo.png" alt="SafeComms Logo">
   </section>
@@ -246,7 +264,7 @@
   <footer>
     <div class="footer-divider"></div>
     <p>&copy; SafeComms Incorporated. All rights reserved.</p>
-    <p>Built in Silicon Valley, California & Tallahassee, Florida. Dedicated to global innovation in communication and for the satisfaction of our clients.</p>
+    <p>Built with ❤️ in Silicon Valley, California & Tallahassee, Florida. Dedicated to global innovation in communication.</p>
   </footer>
 
 </body>
