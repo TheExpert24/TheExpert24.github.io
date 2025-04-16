@@ -238,23 +238,21 @@
     .video-container {
       display: flex;
       justify-content: center;
-      align-items: center;
-      margin-bottom: 40px;
+      gap: 30px;
+      flex-wrap: wrap;
     }
 
     .video-box {
-      width: 100%;
-      max-width: 1000px;
-      height: 500px;
-      border-radius: 15px;
+      width: 80%;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(51, 153, 255, 0.3);
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(51, 153, 255, 0.3);
-      position: relative;
     }
 
-    .seamless-video {
+    iframe {
       width: 100%;
-      height: 100%;
+      height: 450px;
       border: none;
     }
 
@@ -269,6 +267,75 @@
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .popup-overlay::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, rgba(0, 31, 61, 0.5), rgba(51, 153, 255, 0.1), rgba(0, 31, 61, 0.5));
+      background-size: 400% 400%;
+      animation: popupGlassFlow 25s ease infinite;
+      z-index: -1;
+      filter: blur(30px);
+      opacity: 0.7;
+    }
+
+    @keyframes popupGlassFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .popup-content {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(15px);
+      padding: 30px;
+      max-width: 500px;
+      width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(51, 153, 255, 0.4);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .popup-content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+
+    .popup-content p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #fff;
     }
 
     @media (max-width: 768px) {
@@ -296,33 +363,24 @@
   <a href="Mod Bot Beta 1.html">The Mod Bot Beta 1</a>
   <a href="#services">Current Products</a>
   <a href="#services">Pronto API Products</a>
-  <a href="#best-work">Our Best Work</a>
-  <a href="docs.html">Documentation</a>
+  <a href="#contact">Contact</a>
 </nav>
 
-<section id="home" class="hero">
+<section class="hero" id="home">
   <div class="glass-hero-box">
-    <h2>Transforming Communication with Innovation</h2>
-    <p>SafeComms is pioneering the future of digital communication and enhancing your online experience with cutting-edge solutions.</p>
+    <h2>A Pioneer in Chat Technology since 2024</h2>
   </div>
-  <img src="images/safecomms-tech.jpg" alt="SafeComms Technology">
+  <p>SafeComms Incorporated was founded to revolutionize communication via chat. We create new chat APIs and GUIs for the greater public with more features and faster responses, as well as Bots and Extensions to enhance user experience. We push technology to its limits to transform how people connect.</p>
+  <img src="images/thelogo.png" alt="SafeComms Logo">
 </section>
 
 <section id="services" class="services">
-  <div class="services-title">Our Specialized Services</div>
+  <div class="services-title">Click on the service cards for more information</div>
   <div class="service-card-container">
-    <div class="service-card">
-      <h3>DACMO Solutions</h3>
-      <p>Our DACMO products revolutionize how teams work, providing collaborative communication tools for businesses of all sizes.</p>
-    </div>
-    <div class="service-card">
-      <h3>AI-Driven Communication</h3>
-      <p>Leverage AI to enhance real-time communication and streamline complex workflows, delivering results faster.</p>
-    </div>
-    <div class="service-card">
-      <h3>API Solutions</h3>
-      <p>Integrate powerful API tools to customize and extend communication solutions within your organization’s workflow.</p>
-    </div>
+    <div class="service-card"><h3>Pronto Chat API Integration</h3><p>Integrate Pronto extensions to your Pronto API for seamless communication and overall improvement in your experience.</p></div>
+    <div class="service-card"><h3>Mod Bot Beta 1</h3><p>Introducing the future of online moderation and disciplinary action. </p></div>
+    <div class="service-card"><h3>Custom GUIs</h3><p>We create GUIs. Period. </p></div>
+    <div class="service-card"><h3>API</h3><p>Our APIs are designed to revolutionize how online communication is done today.</p></div>
   </div>
 </section>
 
@@ -330,15 +388,57 @@
   <h2>Our Best Work</h2>
   <div class="video-container">
     <div class="video-box">
-      <iframe src="https://www.youtube.com/embed/Us1GpnN-Ez0?autoplay=1&loop=1&playlist=Us1GpnN-Ez0&controls=0&modestbranding=1&showinfo=0&rel=0&enablejsapi=1" 
-        allowfullscreen frameborder="0" class="seamless-video"></iframe>
+      <iframe src="https://www.youtube.com/embed/Us1GpnN-Ez0" allowfullscreen></iframe>
     </div>
   </div>
 </section>
 
 <footer>
   <p>&copy; 2025 SafeComms Incorporated. All rights reserved.</p>
+  <p>Built with ❤️ in Silicon Valley, California & Tallahassee, Florida. Dedicated to global innovation in communication.</p>
 </footer>
+
+<!-- Popup Modal -->
+<div id="popup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <h3 id="popup-title"></h3>
+    <p id="popup-text"></p>
+  </div>
+</div>
+
+<script>
+  const popup = document.getElementById('popup');
+  const popupTitle = document.getElementById('popup-title');
+  const popupText = document.getElementById('popup-text');
+  const closeBtn = document.querySelector('.close-btn');
+
+  const popupData = {
+    'Pronto Chat API Integration': "Our Pronto integration tools leverage adaptive infrastructure and hyper-scaling protocols to maximize real-time communication. Join our ecosystem today!",
+    'Mod Bot Beta 1': "The Mod Bot uses advanced AI moderation techniques to help communities stay safe, inclusive, and troll-free — all with minimal input from human admins.",
+    'Custom GUIs': "Our GUIs are designed to create a user interface that brings reliability, quality, and technology all in one. While making it easy to use, we integrate hundreds of features that not only make communication simple, but bring enjoyment and productivity to communication as well.",
+    'API': "SafeComms Incorporated has a close relationship with the Pronto API. However, we are not solely based on making products and GUIs that run on it. Currently, we are in the process of introducing a new GUI from DACMO-Works called BroPro. However, we aren't stopping there. We will soon begin work on our very own API. To follow our progress on any product or get updates, please sign up. Thank you!"
+  };
+
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const title = card.querySelector('h3').innerText;
+      popupTitle.innerText = title;
+      popupText.innerText = popupData[title] || "More details coming soon.";
+      popup.style.display = 'flex';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      popup.style.display = 'none';
+    }
+  });
+</script>
 
 </body>
 </html>
