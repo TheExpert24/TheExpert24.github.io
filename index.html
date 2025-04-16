@@ -9,154 +9,176 @@
       --primary: #001f3d;
       --accent: #3399ff;
       --white: #ffffff;
-      --card-bg: rgba(51, 153, 255, 0.1);
+      --glass-bg: rgba(0, 31, 61, 0.6);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: var(--primary);
       color: var(--white);
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
+    /* === Background Animation === */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, #001f3d, #003366, #001f3d);
+      background-size: 400% 400%;
+      animation: gradientFlow 20s ease infinite;
+      z-index: -2;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     header {
-      background-color: var(--primary);
-      padding: 30px 20px;
       text-align: center;
-      animation: fadeIn 1.5s ease;
+      padding: 30px 20px;
     }
 
     header h1 {
-      font-size: 3rem;
-      margin: 0;
-      font-weight: 600;
+      font-size: 3.2rem;
       letter-spacing: 1px;
+      font-weight: 700;
+      background: linear-gradient(to right, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1.5s ease;
     }
 
     nav {
-      background-color: var(--accent);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: var(--glass-bg);
       padding: 15px 30px;
       display: flex;
       justify-content: center;
-      gap: 20px;
-      position: sticky;
-      top: 0;
+      gap: 25px;
       z-index: 999;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
     nav a {
       color: var(--white);
-      text-decoration: none;
       font-size: 1.1rem;
       font-weight: 500;
-      padding: 6px 12px;
+      text-decoration: none;
+      padding: 8px 14px;
       transition: all 0.3s ease;
-      border-radius: 6px;
+      border-radius: 8px;
     }
 
     nav a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: scale(1.05);
+      background-color: rgba(255,255,255,0.1);
+      transform: scale(1.1);
     }
 
+    /* === Hero Section === */
     .hero {
-      position: relative;
-      padding: 120px 20px 100px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      background: linear-gradient(to right, #001f3d, #002f5d);
-      animation: fadeInUp 1s ease-out;
+      padding: 40px 20px;
+      position: relative;
     }
 
     .hero h2 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       margin-bottom: 20px;
-      background: linear-gradient(to right, #fff, #3399ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      animation: fadeInUp 1s ease-out;
     }
 
     .hero p {
       font-size: 1.2rem;
       max-width: 800px;
-      margin: 0 auto;
       line-height: 1.6;
+      animation: fadeInUp 1.4s ease-out;
     }
 
     .hero img {
-      margin-top: 50px;
+      margin-top: 40px;
       width: 600px;
       max-width: 90%;
-      height: auto;
-      animation: fadeIn 2s ease-in;
-      filter: drop-shadow(0 0 10px rgba(51, 153, 255, 0.3));
+      animation: fadeInUp 1.6s ease-out;
+      filter: drop-shadow(0 0 20px rgba(51,153,255,0.5));
     }
 
+    /* === Services Section === */
     .services {
+      padding: 100px 30px;
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 80px 30px;
-      background-color: var(--primary);
       flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
     }
 
     .service-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      width: 300px;
       padding: 40px 30px;
-      width: 320px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeInUp 1s ease-out;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      transition: all 0.4s ease;
+      transform-style: preserve-3d;
+      perspective: 1000px;
     }
 
     .service-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      transform: translateY(-15px) rotateX(3deg);
+      box-shadow: 0 12px 40px rgba(51,153,255,0.4);
     }
 
     .service-card h3 {
       font-size: 1.8rem;
-      margin-bottom: 15px;
       color: var(--accent);
+      margin-bottom: 15px;
     }
 
     .service-card p {
+      color: #d6f0ff;
       font-size: 1.05rem;
-      color: #e0f0ff;
       line-height: 1.6;
     }
 
+    /* === Footer === */
     footer {
-      background-color: var(--primary);
-      color: var(--white);
+      padding: 60px 20px 40px;
       text-align: center;
-      padding: 40px 20px 20px;
       font-size: 0.95rem;
-      animation: fadeIn 2s ease-in;
+      background: rgba(0,0,0,0.5);
+      border-top: 2px solid var(--accent);
     }
 
     .footer-divider {
+      width: 80%;
       height: 5px;
       background-color: var(--accent);
-      margin: 10px auto 20px;
-      width: 80%;
-      border-radius: 3px;
+      margin: 20px auto;
+      border-radius: 10px;
     }
 
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
+    /* === Animations === */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -168,11 +190,15 @@
       }
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     @media (max-width: 768px) {
       .hero h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
       }
-
       .services {
         flex-direction: column;
         align-items: center;
@@ -192,35 +218,35 @@
     <a href="#services">DACMO-Works</a>
     <a href="Mod Bot Beta 1.html">The Mod Bot Beta 1</a>
     <a href="#services">Current Products</a>
-    <a href="#services">Pronto API Related Products</a>
-    <a href="#contact">Contact Us</a>
+    <a href="#services">Pronto API Products</a>
+    <a href="#contact">Contact</a>
   </nav>
 
   <section class="hero">
     <h2>A Pioneer in Chat Technology since 2024</h2>
-    <p>SafeComms Incorporated was founded to revolutionize communication via chat. We create new chat APIs and GUIs for the greater public with more features and faster responses as well as make Bots and Extensions with more features that improve user experience on chats that implement our bots. We push technology to its limits with a goal to revolutionize communications via chat platforms. Check us out in our "About us" page. Welcome to SafeComms Incorporated!</p>
+    <p>SafeComms Incorporated was founded to revolutionize communication via chat. We create new chat APIs and GUIs for the greater public with more features and faster responses, as well as Bots and Extensions to enhance user experience. We push technology to its limits to transform how people connect.</p>
     <img src="images/thelogo.png" alt="SafeComms Logo">
   </section>
 
   <section id="services" class="services">
     <div class="service-card">
       <h3>Dedication</h3>
-      <p>Our Users and Clients are our number one priority. All of our products are designed for the users' satisfaction and approval.</p>
+      <p>Our users are the heartbeat of our innovation. Every product is crafted with user satisfaction as our north star.</p>
     </div>
     <div class="service-card">
       <h3>Quality</h3>
-      <p>All our APIs and Chat GUIs are designed to run without any fault. All products are heavily tested and pushed beyond their limits before being put on the market.</p>
+      <p>Our APIs and GUIs are built to be bulletproof. Rigorously tested and tuned for real-world conditions and performance.</p>
     </div>
     <div class="service-card">
       <h3>Efficiency & Tech</h3>
-      <p>Using cutting edge technology to create our chat platforms and Pronto API extensions, every feature and aspect is engineered for speed, stability, and great user experience.</p>
+      <p>With cutting-edge tech and smart architecture, our products run seamlessly to deliver the fastest and smoothest chat experiences.</p>
     </div>
   </section>
 
   <footer>
     <div class="footer-divider"></div>
     <p>&copy; SafeComms Incorporated. All rights reserved.</p>
-    <p>Designed and Built in Silicon Valley, California, and Tallahassee, Florida With Love for the Greater World of Communication</p>
+    <p>Built in Silicon Valley, California & Tallahassee, Florida. Dedicated to global innovation in communication and for the satisfaction of our clients.</p>
   </footer>
 
 </body>
