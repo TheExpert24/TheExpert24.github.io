@@ -91,7 +91,6 @@
       background: var(--glass-bg);
       padding: 15px 30px;
       display: flex;
-      justify-content: center; /* Centering the items */
       align-items: center;
       gap: 25px;
       z-index: 999;
@@ -316,159 +315,185 @@
 
     .popup-content {
       background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(15px);
+      padding: 30px;
       max-width: 500px;
-      width: 100%;
-      border-radius: 10px;
+      width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(51, 153, 255, 0.4);
+      color: #fff;
       text-align: center;
-      backdrop-filter: blur(12px);
-      animation: popupFadeIn 0.6s ease-out;
+      position: relative;
+      z-index: 1;
     }
 
-    .popup-content h2 {
-      font-size: 2.2rem;
-      margin-bottom: 30px;
+    .popup-content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
       color: var(--accent);
     }
 
-    .popup-form input[type="email"], .popup-form button {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 15px;
-      font-size: 1.2rem;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      background-color: rgba(255, 255, 255, 0.1);
-      color: var(--white);
+    .popup-content p {
+      font-size: 1.05rem;
+      line-height: 1.6;
     }
 
-    .popup-form button {
-      background-color: var(--accent);
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
       cursor: pointer;
-      border: none;
-      transition: background-color 0.3s;
+      color: #fff;
     }
 
-    .popup-form button:hover {
-      background-color: #0066cc;
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+      .video-box iframe {
+        height: 250px;
+      }
     }
-
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo-container">
-      <a href="#"><h1>SafeComms Inc.</h1></a>
-    </div>
-  </header>
+<header>
+  <div class="logo-container">
+    <a href="index.html"><h1>SafeComms Incorporated</h1></a>
+  </div>
+</header>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-    <div>
-      <button id="signup-btn">Sign Up</button>
-    </div>
-  </nav>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#services">DACMO-Works</a>
+  <a href="Mod Bot Beta 1.html">The Mod Bot Beta 1</a>
+  <a href="#services">Current Products</a>
+  <a href="#services">Pronto API Products</a>
+  <a href="#contact">Contact</a>
+  <div>
+    <a href="#" id="signup-btn">Sign Up</a>
+  </div>
+</nav>
 
-  <section class="hero">
-    <div class="glass-hero-box">
-      <h2>Your Trusted Communication Partner</h2>
-      <p>At SafeComms, we provide secure and reliable communication solutions for businesses and individuals. Stay connected, stay safe.</p>
-    </div>
-    <img src="hero-image.jpg" alt="Communication Image"/>
-  </section>
+<section class="hero" id="home">
+  <div class="glass-hero-box">
+    <h2>A Pioneer in Chat Technology since 2024</h2>
+  </div>
+  <p>SafeComms Incorporated was founded to revolutionize communication via chat. We create new chat APIs and GUIs for the greater public with more features and faster responses, as well as Bots and Extensions to enhance user experience. We push technology to its limits to transform how people connect.</p>
+  <img src="images/thelogo.png" alt="SafeComms Logo">
+</section>
 
-  <section class="services">
-    <h2 class="services-title">Our Services</h2>
-    <div class="service-card-container">
-      <div class="service-card">
-        <h3>Secure Messaging</h3>
-        <p>Keep your conversations private with our encrypted messaging solutions.</p>
-      </div>
-      <div class="service-card">
-        <h3>Data Encryption</h3>
-        <p>Protect your sensitive data from unauthorized access with top-level encryption.</p>
-      </div>
-      <div class="service-card">
-        <h3>Secure Video Calls</h3>
-        <p>Make high-quality video calls with the security you need.</p>
-      </div>
-    </div>
-  </section>
+<section id="services" class="services">
+  <div class="services-title">Click on the service cards for more information</div>
+  <div class="service-card-container">
+    <div class="service-card"><h3>Pronto Chat API Integration</h3><p>Integrate Pronto extensions to your Pronto API for seamless communication and overall improvement in your experience.</p></div>
+    <div class="service-card"><h3>Mod Bot Beta 1</h3><p>Introducing the future of online moderation and disciplinary action. </p></div>
+    <div class="service-card"><h3>Custom GUIs</h3><p>We create GUIs. Period. </p></div>
+    <div class="service-card"><h3>API</h3><p>Our APIs are designed to revolutionize how online communication is done today.</p></div>
+  </div>
+</section>
 
-  <section class="best-work">
-    <h2>Our Best Work</h2>
-    <div class="video-container">
-      <div class="video-box">
-        <iframe src="https://www.youtube.com/embed/your_video_id" title="Video"></iframe>
-      </div>
-      <div class="video-box">
-        <iframe src="https://www.youtube.com/embed/your_video_id" title="Video"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 SafeComms Incorporated | All rights reserved.</p>
-  </footer>
-
-  <!-- Popup Modal -->
-  <div class="popup-overlay">
-    <div class="popup-content">
-      <h2>Join the SafeComms Community</h2>
-      <form class="popup-form" id="signup-form">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Sign Up</button>
-      </form>
+<section id="best-work" class="best-work">
+  <h2>Our Best Work</h2>
+  <div class="video-container">
+    <div class="video-box">
+      <iframe src="https://www.youtube.com/embed/Us1GpnN-Ez0" allowfullscreen></iframe>
     </div>
   </div>
+</section>
 
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    // EmailJS setup
-    emailjs.init("user_yourUserID");
+<footer>
+  <p>&copy; 2025 SafeComms Incorporated. All rights reserved.</p>
+  <p>Built with ❤️ in Silicon Valley, California & Tallahassee, Florida. Dedicated to global innovation in communication.</p>
+</footer>
 
-    // Handle form submission
-    const signupForm = document.querySelector('#signup-form');
-    const signupModal = document.querySelector('.popup-overlay');
+<!-- Info Popup Modal -->
+<div id="popup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <h3 id="popup-title"></h3>
+    <p id="popup-text"></p>
+  </div>
+</div>
 
-    signupForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+<!-- Sign Up Modal -->
+<div id="signup-modal" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" id="signup-close">&times;</span>
+    <h3>Create an Account</h3>
+    <form id="signup-form" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+      <input type="text" placeholder="Full Name" required style="padding: 10px; border-radius: 8px; border: none;">
+      <input type="email" placeholder="Email Address" required style="padding: 10px; border-radius: 8px; border: none;">
+      <input type="password" placeholder="Password" required style="padding: 10px; border-radius: 8px; border: none;">
+      <button type="submit" style="padding: 10px; background-color: var(--accent); color: #fff; border: none; border-radius: 8px; font-weight: bold;">Sign Up</button>
+    </form>
+  </div>
+</div>
 
-      const params = {
-        from_email: "express.vanukuri@gmail.com",
-        to_email: document.querySelector('input[type=email]').value, // sending email to the email provided in the form
-        subject: "Thank you for signing up with us",
-        message: "Thank you for signing up with SafeComms Incorporated! We're excited to have you on board."
-      };
+<script>
+  const popup = document.getElementById('popup');
+  const popupTitle = document.getElementById('popup-title');
+  const popupText = document.getElementById('popup-text');
+  const closeBtn = document.querySelector('.close-btn');
 
-      emailjs.send("service_yourServiceID", "template_yourTemplateID", params)
-        .then((response) => {
-          console.log('Success:', response);
-          alert("Thanks for signing up! We'll be in touch soon.");
-          signupModal.style.display = 'none';
-          signupForm.reset();
-        }, (error) => {
-          console.error('Failed:', error);
-          alert("There was an issue with the sign-up. Please try again.");
-        });
+  const popupData = {
+    'Pronto Chat API Integration': "Our Pronto integration tools leverage adaptive infrastructure and hyper-scaling protocols to maximize real-time communication. Join our ecosystem today!",
+    'Mod Bot Beta 1': "The Mod Bot uses advanced AI moderation techniques to help communities stay safe, inclusive, and troll-free — all with minimal input from human admins.",
+    'Custom GUIs': "Our GUIs are designed to create a user interface that brings reliability, quality, and technology all in one. While making it easy to use, we integrate hundreds of features that not only make communication simple, but bring enjoyment and productivity to communication as well.",
+    'API': "SafeComms Incorporated has a close relationship with the Pronto API. However, we are not solely based on making products and GUIs that run on it. Currently, we are in the process of introducing a new GUI from DACMO-Works called BroPro. However, we aren't stopping there. We will soon begin work on our very own API. To follow our progress on any product or get updates, please sign up. Thank you!"
+  };
+
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const title = card.querySelector('h3').innerText;
+      popupTitle.innerText = title;
+      popupText.innerText = popupData[title] || "More details coming soon.";
+      popup.style.display = 'flex';
     });
+  });
 
-    // Show popup
-    document.querySelector('#signup-btn').addEventListener('click', () => {
-      signupModal.style.display = 'flex';
-    });
+  closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
 
-    // Close popup when clicked outside
-    signupModal.addEventListener('click', (e) => {
-      if (e.target === signupModal) {
-        signupModal.style.display = 'none';
-      }
-    });
-  </script>
+  window.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      popup.style.display = 'none';
+    }
+  });
+
+  // Signup Modal Functionality
+  const signupBtn = document.getElementById('signup-btn');
+  const signupModal = document.getElementById('signup-modal');
+  const signupClose = document.getElementById('signup-close');
+  const signupForm = document.getElementById('signup-form');
+
+  signupBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    signupModal.style.display = 'flex';
+  });
+
+  signupClose.addEventListener('click', () => {
+    signupModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === signupModal) {
+      signupModal.style.display = 'none';
+    }
+  });
+
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert("Thanks for signing up! We'll be in touch soon.");
+    signupModal.style.display = 'none';
+    signupForm.reset();
+  });
+</script>
+
 </body>
 </html>
