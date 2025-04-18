@@ -91,7 +91,7 @@
       background: var(--glass-bg);
       padding: 15px 30px;
       display: flex;
-      justify-content: center;
+      align-items: center;
       gap: 25px;
       z-index: 999;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -110,6 +110,16 @@
     nav a:hover {
       background-color: rgba(255,255,255,0.1);
       transform: scale(1.1);
+    }
+
+    nav div {
+      margin-left: auto;
+    }
+
+    #signup-btn {
+      background-color: var(--accent);
+      color: #fff;
+      font-weight: bold;
     }
 
     .hero {
@@ -364,6 +374,9 @@
   <a href="#services">Current Products</a>
   <a href="#services">Pronto API Products</a>
   <a href="#contact">Contact</a>
+  <div>
+    <a href="#" id="signup-btn">Sign Up</a>
+  </div>
 </nav>
 
 <section class="hero" id="home">
@@ -398,12 +411,26 @@
   <p>Built with ❤️ in Silicon Valley, California & Tallahassee, Florida. Dedicated to global innovation in communication.</p>
 </footer>
 
-<!-- Popup Modal -->
+<!-- Info Popup Modal -->
 <div id="popup" class="popup-overlay">
   <div class="popup-content">
     <span class="close-btn">&times;</span>
     <h3 id="popup-title"></h3>
     <p id="popup-text"></p>
+  </div>
+</div>
+
+<!-- Sign Up Modal -->
+<div id="signup-modal" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" id="signup-close">&times;</span>
+    <h3>Create an Account</h3>
+    <form id="signup-form" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+      <input type="text" placeholder="Full Name" required style="padding: 10px; border-radius: 8px; border: none;">
+      <input type="email" placeholder="Email Address" required style="padding: 10px; border-radius: 8px; border: none;">
+      <input type="password" placeholder="Password" required style="padding: 10px; border-radius: 8px; border: none;">
+      <button type="submit" style="padding: 10px; background-color: var(--accent); color: #fff; border: none; border-radius: 8px; font-weight: bold;">Sign Up</button>
+    </form>
   </div>
 </div>
 
@@ -437,6 +464,34 @@
     if (e.target === popup) {
       popup.style.display = 'none';
     }
+  });
+
+  // Signup Modal Functionality
+  const signupBtn = document.getElementById('signup-btn');
+  const signupModal = document.getElementById('signup-modal');
+  const signupClose = document.getElementById('signup-close');
+  const signupForm = document.getElementById('signup-form');
+
+  signupBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    signupModal.style.display = 'flex';
+  });
+
+  signupClose.addEventListener('click', () => {
+    signupModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === signupModal) {
+      signupModal.style.display = 'none';
+    }
+  });
+
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert("Thanks for signing up! We'll be in touch soon.");
+    signupModal.style.display = 'none';
+    signupForm.reset();
   });
 </script>
 
