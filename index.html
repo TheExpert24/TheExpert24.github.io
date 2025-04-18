@@ -92,9 +92,16 @@
       padding: 15px 30px;
       display: flex;
       align-items: center;
-      gap: 25px;
       z-index: 999;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      flex: 1;
     }
 
     nav a {
@@ -112,7 +119,7 @@
       transform: scale(1.1);
     }
 
-    nav div {
+    nav div:last-child {
       margin-left: auto;
     }
 
@@ -367,13 +374,15 @@
 </header>
 
 <nav>
-  <a href="#home">Home</a>
-  <a href="#about">About Us</a>
-  <a href="#services">DACMO-Works</a>
-  <a href="Mod Bot Beta 1.html">The Mod Bot Beta 1</a>
-  <a href="#services">Current Products</a>
-  <a href="#services">Pronto API Products</a>
-  <a href="#contact">Contact</a>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">DACMO-Works</a>
+    <a href="Mod Bot Beta 1.html">The Mod Bot Beta 1</a>
+    <a href="#services">Current Products</a>
+    <a href="#services">Pronto API Products</a>
+    <a href="#contact">Contact</a>
+  </div>
   <div>
     <a href="#" id="signup-btn">Sign Up</a>
   </div>
@@ -466,11 +475,9 @@
     }
   });
 
-  // Signup Modal Functionality
-  const signupBtn = document.getElementById('signup-btn');
   const signupModal = document.getElementById('signup-modal');
+  const signupBtn = document.getElementById('signup-btn');
   const signupClose = document.getElementById('signup-close');
-  const signupForm = document.getElementById('signup-form');
 
   signupBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -485,13 +492,6 @@
     if (e.target === signupModal) {
       signupModal.style.display = 'none';
     }
-  });
-
-  signupForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert("Thanks for signing up! We'll be in touch soon.");
-    signupModal.style.display = 'none';
-    signupForm.reset();
   });
 </script>
 
