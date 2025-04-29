@@ -298,6 +298,71 @@
   </div>
 </div>
 
+<!-- Signup Modal -->
 <div id="signup-modal" class="popup-overlay">
   <div class="popup-content">
-    <span class="close-btn" id="signup-close">&times;</
+    <span class="close-btn" id="signup-close">&times;</span>
+    <h3>Create an Account</h3>
+    <form id="signup-form" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+      <input type="text" placeholder="Full Name" required style="padding: 10px; border-radius: 8px; border: none;">
+      <input type="email" id="signup-email" placeholder="Email Address" required style="padding: 10px; border-radius: 8px; border: none;">
+      <input type="password" id="signup-password" placeholder="Password" required style="padding: 10px; border-radius: 8px; border: none;">
+      <button type="submit" style="padding: 10px; background-color: var(--accent); color: #fff; border: none; border-radius: 8px; font-weight: bold;">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyA90B4IFvedjMlctwuV0mKTocrkx-6ErD4",
+    authDomain: "safecomms-incorporated.firebaseapp.com",
+    projectId: "safecomms-incorporated",
+    storageBucket: "safecomms-incorporated.appspot.com",
+    messagingSenderId: "1035230396120",
+    appId: "1:1035230396120:web:fbc23f2258ab41a556e1ad",
+    measurementId: "G-6WZK36D0VX"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  const signupModal = document.getElementById('signup-modal');
+  const signupBtn = document.getElementById('signup-btn');
+  const signupClose = document.getElementById('signup-close');
+
+  signupBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    signupModal.style.display = 'flex';
+  });
+
+  signupClose.addEventListener('click', () => {
+    signupModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === signupModal) {
+      signupModal.style.display = 'none';
+    }
+  });
+
+  document.getElementById('signup-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('signup-email').value;
+    const password = document.getElementById('signup-password').value;
+
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        alert("Sign-up successful! Welcome to SafeComms.");
+        signupModal.style.display = 'none';
+      })
+      .catch((error) => {
+        alert("Error: " + error.message);
+      });
+  });
+</script>
+
+</body>
+</html>
