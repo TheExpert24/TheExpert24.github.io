@@ -359,79 +359,101 @@
       .hero h2 {
         font-size: 2.2rem;
       }
-      .services-title {
-        font-size: 1.6rem;
-      }
-      .service-card-container {
-        flex-direction: column;
-        align-items: center;
+      .video-box iframe {
+        height: 250px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Header Section -->
-  <header>
-    <div class="logo-container">
-      <h1><a href="#">SafeComms Incorporated</a></h1>
-    </div>
-  </header>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Services</a>
-      <a href="#">Our Work</a>
-      <a href="#">Contact</a>
-    </div>
-    <div>
-      <button id="signup-btn">Sign Up</button>
-    </div>
-  </nav>
+<header>
+  <div class="logo-container">
+    <a href="index.html"><h1>SafeComms Incorporated</h1></a>
+  </div>
+</header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="glass-hero-box">
-      <h2>Welcome to SafeComms</h2>
-      <p>Your communication, our priority. Let's work together to protect your sensitive information.</p>
-    </div>
-    <img src="your-hero-image.jpg" alt="SafeComms Hero Image" />
-  </section>
+<nav>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">DACMO-Works</a>
+    <a href="Mod Bot Beta 1.html">The Mod Bot Beta 1</a>
+    <a href="#services">Current Products</a>
+    <a href="#services">Pronto API Products</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div>
+    <a href="#" id="signup-btn">Sign Up</a>
+  </div>
+</nav>
 
-  <!-- Sign Up Popup -->
-  <div class="popup-overlay" id="signup-modal">
-    <div class="popup-content">
-      <span class="close-btn" onclick="closeSignUpModal()">×</span>
-      <h3>Sign Up</h3>
-      <form id="signup-form">
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email Address" required />
-        <input type="password" placeholder="Password" required />
-        <button type="submit">Submit</button>
-      </form>
+<section class="hero" id="home">
+  <div class="glass-hero-box">
+    <h2>A Pioneer in Chat Technology since 2024</h2>
+  </div>
+  <p>SafeComms Incorporated was founded to revolutionize communication via chat. We create new chat APIs and GUIs for the greater public with more features and faster responses, as well as Bots and Extensions to enhance user experience. We push technology to its limits to transform how people connect.</p>
+  <img src="images/thelogo.png" alt="SafeComms Logo">
+</section>
+
+<section id="services" class="services">
+  <div class="services-title">Click on the service cards for more information</div>
+  <div class="service-card-container">
+    <div class="service-card"><h3>Pronto Chat API Integration</h3><p>Integrate Pronto extensions to your Pronto API for seamless communication and overall improvement in your experience.</p></div>
+    <div class="service-card"><h3>Mod Bot Beta 1</h3><p>Introducing the future of online moderation and disciplinary action. </p></div>
+    <div class="service-card"><h3>Custom GUIs</h3><p>We create GUIs. Period. </p></div>
+    <div class="service-card"><h3>API</h3><p>Our APIs are designed to revolutionize how online communication is done.</p></div>
+  </div>
+</section>
+
+<section id="best-work" class="best-work">
+  <h2>Our Work, Your World</h2>
+  <div class="video-container">
+    <div class="video-box">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
     </div>
   </div>
+</section>
 
-  <!-- JavaScript for Modal -->
-  <script>
-    // Open sign-up modal
-    document.getElementById('signup-btn').addEventListener('click', function() {
-      document.getElementById('signup-modal').style.display = 'flex';
-    });
+<footer>
+  <p>SafeComms Incorporated 2025. All rights reserved.</p>
+</footer>
 
-    // Close sign-up modal
-    function closeSignUpModal() {
-      document.getElementById('signup-modal').style.display = 'none';
+<!-- Sign Up Modal -->
+<div class="popup-overlay" id="signup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" id="close-btn">&times;</span>
+    <h3>Sign Up</h3>
+    <p>Join our community to experience seamless chat technology!</p>
+    <form>
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Enter your email" required><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="Create a password" required><br><br>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const signupBtn = document.getElementById('signup-btn');
+  const popupOverlay = document.getElementById('signup-overlay');
+  const closeBtn = document.getElementById('close-btn');
+
+  signupBtn.addEventListener('click', () => {
+    popupOverlay.style.display = 'flex';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    popupOverlay.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === popupOverlay) {
+      popupOverlay.style.display = 'none';
     }
+  });
+</script>
 
-    // Handle sign-up form submission
-    document.getElementById('signup-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      // Implement backend logic to save user info
-      alert('Sign-up successful!');
-      closeSignUpModal();
-    });
-  </script>
 </body>
 </html>
