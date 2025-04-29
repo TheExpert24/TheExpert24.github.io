@@ -12,366 +12,426 @@
       --glass-bg: rgba(0, 31, 61, 0.6);
     }
 
-    /* Basic Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f1f1f1;
-      color: #333;
+    html, body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--primary);
+      color: var(--white);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, #001f3d, #003366, #001f3d);
+      background-size: 400% 400%;
+      animation: gradientFlow 20s ease infinite;
+      z-index: -2;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     header {
-      background-color: var(--primary);
-      color: var(--white);
-      padding: 20px;
       text-align: center;
+      padding: 50px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-container {
+      display: inline-block;
+      position: relative;
+      padding: 20px 50px;
+      border-radius: 10px;
+      background: rgba(51, 153, 255, 0.15);
+      box-shadow: 0 0 40px rgba(51, 153, 255, 0.4);
+      animation: haloPulse 6s ease-in-out infinite;
     }
 
     .logo-container h1 {
       font-size: 3rem;
-      font-weight: bold;
-      text-transform: uppercase;
+      font-weight: 700;
+      background: linear-gradient(to right, #ffffff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-container a {
+      text-decoration: none;
+    }
+
+    @keyframes haloPulse {
+      0%, 100% {
+        box-shadow: 0 0 40px rgba(51, 153, 255, 0.4);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 80px rgba(51, 153, 255, 0.7);
+        transform: scale(1.05);
+      }
     }
 
     nav {
-      background-color: var(--accent);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: var(--glass-bg);
+      padding: 15px 30px;
       display: flex;
-      justify-content: space-between;
-      padding: 10px 20px;
+      align-items: center;
+      z-index: 999;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      flex: 1;
     }
 
-    .nav-links a {
+    nav a {
       color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 500;
       text-decoration: none;
-      font-weight: bold;
-      padding: 5px 10px;
-      border-radius: 4px;
+      padding: 8px 14px;
+      transition: all 0.3s ease;
+      border-radius: 8px;
     }
 
-    .nav-links a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+    nav a:hover {
+      background-color: rgba(255,255,255,0.1);
+      transform: scale(1.1);
+    }
+
+    nav div:last-child {
+      margin-left: auto;
+    }
+
+    #signup-btn {
+      background-color: var(--accent);
+      color: #fff;
+      font-weight: bold;
     }
 
     .hero {
-      background: url('images/hero-bg.jpg') center/cover no-repeat;
-      padding: 100px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      color: var(--white);
+      padding: 40px 20px;
+      position: relative;
     }
 
-    .hero h2 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
+    .glass-hero-box {
+      padding: 20px 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 30px rgba(51, 153, 255, 0.3);
+      margin-bottom: 30px;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .glass-hero-box h2 {
+      font-size: 2.8rem;
+      background: linear-gradient(to right, #ffffff, #3399ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(51, 153, 255, 0.4);
     }
 
     .hero p {
       font-size: 1.2rem;
       max-width: 800px;
-      margin: 0 auto;
+      line-height: 1.6;
+      animation: fadeInUp 1.4s ease-out;
     }
 
     .hero img {
-      width: 200px;
-      margin-top: 20px;
+      margin-top: 40px;
+      width: 600px;
+      max-width: 90%;
+      animation: fadeInUp 1.6s ease-out;
+      filter: drop-shadow(0 0 20px rgba(51,153,255,0.5));
     }
 
     .services {
-      padding: 60px 20px;
-      background-color: var(--glass-bg);
-      color: var(--white);
-      text-align: center;
+      padding: 100px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .services-title {
-      font-size: 2.5rem;
       margin-bottom: 40px;
+      font-size: 2rem;
+      padding: 15px 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(51, 153, 255, 0.3);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      background-image: linear-gradient(to right, #ffffff, var(--accent));
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 12px rgba(51, 153, 255, 0.25);
+      text-align: center;
+      max-width: 800px;
     }
 
     .service-card-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
     }
 
     .service-card {
-      background-color: rgba(0, 31, 61, 0.8);
-      padding: 20px;
-      border-radius: 8px;
-      transition: all 0.3s ease;
+      width: 300px;
+      padding: 40px 30px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      transition: all 0.4s ease;
       cursor: pointer;
     }
 
     .service-card:hover {
-      background-color: rgba(0, 31, 61, 0.9);
-      transform: translateY(-10px);
+      transform: translateY(-15px);
+      box-shadow: 0 12px 40px rgba(51,153,255,0.4);
     }
 
     .service-card h3 {
       font-size: 1.8rem;
+      color: var(--accent);
       margin-bottom: 15px;
     }
 
     .service-card p {
-      font-size: 1.1rem;
+      color: #d6f0ff;
+      font-size: 1.05rem;
+      line-height: 1.6;
     }
 
     .best-work {
       padding: 60px 20px;
       text-align: center;
+      background-color: rgba(0, 31, 61, 0.9);
+    }
+
+    .best-work h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      background: linear-gradient(to right, #ffffff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(51, 153, 255, 0.4);
     }
 
     .video-container {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 30px;
+      flex-wrap: wrap;
     }
 
-    .video-box iframe {
-      width: 560px;
-      height: 315px;
-      border-radius: 8px;
+    .video-box {
+      width: 80%;
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(51, 153, 255, 0.3);
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
     }
 
     footer {
-      background-color: var(--primary);
-      color: var(--white);
-      padding: 20px;
+      padding: 60px 20px 40px;
       text-align: center;
+      font-size: 0.95rem;
+      background: rgba(0,0,0,0.5);
+      border-top: 2px solid var(--accent);
     }
 
-    footer p {
-      font-size: 1.1rem;
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .popup-overlay {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
       justify-content: center;
       align-items: center;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .popup-overlay::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, rgba(0, 31, 61, 0.5), rgba(51, 153, 255, 0.1), rgba(0, 31, 61, 0.5));
+      background-size: 400% 400%;
+      animation: popupGlassFlow 25s ease infinite;
+      z-index: -1;
+      filter: blur(30px);
+      opacity: 0.7;
+    }
+
+    @keyframes popupGlassFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .popup-content {
-      background-color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(15px);
       padding: 30px;
-      border-radius: 8px;
-      width: 80%;
-      max-width: 600px;
+      max-width: 500px;
+      width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(51, 153, 255, 0.4);
+      color: #fff;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     .popup-content h3 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      color: var(--accent);
     }
 
     .popup-content p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
+      font-size: 1.05rem;
+      line-height: 1.6;
     }
 
     .close-btn {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 20px;
+      right: 30px;
       font-size: 2rem;
       cursor: pointer;
-    }
-
-    #signup-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      justify-content: center;
-      align-items: center;
-    }
-
-    #signup-modal .popup-content {
-      background-color: var(--white);
-      padding: 40px;
-      border-radius: 10px;
-      width: 350px;
-    }
-
-    #signup-modal input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    #signup-modal button {
-      width: 100%;
-      padding: 12px;
-      background-color: var(--accent);
       color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
     }
 
-    #signup-modal button:hover {
-      background-color: #0077cc;
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+      .services-title {
+        font-size: 1.6rem;
+      }
+      .service-card-container {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo-container">
+      <h1><a href="#">SafeComms Incorporated</a></h1>
+    </div>
+  </header>
 
-<header>
-  <div class="logo-container">
-    <a href="index.html"><h1>SafeComms Incorporated</h1></a>
-  </div>
-</header>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Our Work</a>
+      <a href="#">Contact</a>
+    </div>
+    <div>
+      <button id="signup-btn">Sign Up</button>
+    </div>
+  </nav>
 
-<nav>
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#services">DACMO-Works</a>
-    <a href="Mod Bot Beta 1.html">The Mod Bot Beta 1</a>
-    <a href="#services">Current Products</a>
-    <a href="#services">Pronto API Products</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div>
-    <a href="#" id="signup-btn">Sign Up</a>
-  </div>
-</nav>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="glass-hero-box">
+      <h2>Welcome to SafeComms</h2>
+      <p>Your communication, our priority. Let's work together to protect your sensitive information.</p>
+    </div>
+    <img src="your-hero-image.jpg" alt="SafeComms Hero Image" />
+  </section>
 
-<section class="hero" id="home">
-  <div class="glass-hero-box">
-    <h2>A Pioneer in Chat Technology since 2024</h2>
-  </div>
-  <p>SafeComms Incorporated was founded to revolutionize communication via chat. We create new chat APIs and GUIs for the greater public with more features and faster responses, as well as Bots and Extensions to enhance user experience. We push technology to its limits to transform how people connect.</p>
-  <img src="images/thelogo.png" alt="SafeComms Logo">
-</section>
-
-<section id="services" class="services">
-  <div class="services-title">Click on the service cards for more information</div>
-  <div class="service-card-container">
-    <div class="service-card"><h3>Pronto Chat API Integration</h3><p>Integrate Pronto extensions to your Pronto API for seamless communication and overall improvement in your experience.</p></div>
-    <div class="service-card"><h3>Mod Bot Beta 1</h3><p>Introducing the future of online moderation and disciplinary action. </p></div>
-    <div class="service-card"><h3>Custom GUIs</h3><p>We create GUIs. Period. </p></div>
-    <div class="service-card"><h3>API</h3><p>Our APIs are designed to revolutionize how online communication is done today.</p></div>
-  </div>
-</section>
-
-<section id="best-work" class="best-work">
-  <h2>Our Best Work</h2>
-  <div class="video-container">
-    <div class="video-box">
-      <iframe src="https://www.youtube.com/embed/Us1GpnN-Ez0" allowfullscreen></iframe>
+  <!-- Sign Up Popup -->
+  <div class="popup-overlay" id="signup-modal">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closeSignUpModal()">×</span>
+      <h3>Sign Up</h3>
+      <form id="signup-form">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </div>
-</section>
 
-<footer>
-  <p>&copy; 2025 SafeComms Incorporated. All rights reserved.</p>
-  <p>Built with ❤️ in Silicon Valley, California & Tallahassee, Florida. Dedicated to global innovation in communication.</p>
-</footer>
+  <!-- JavaScript for Modal -->
+  <script>
+    // Open sign-up modal
+    document.getElementById('signup-btn').addEventListener('click', function() {
+      document.getElementById('signup-modal').style.display = 'flex';
+    });
 
-<div id="popup" class="popup-overlay">
-  <div class="popup-content">
-    <span class="close-btn">&times;</span>
-    <h3 id="popup-title"></h3>
-    <p id="popup-text"></p>
-  </div>
-</div>
-
-<!-- Signup Modal -->
-<div id="signup-modal" class="popup-overlay">
-  <div class="popup-content">
-    <span class="close-btn" id="signup-close">&times;</span>
-    <h3>Create an Account</h3>
-    <form id="signup-form" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
-      <input type="text" placeholder="Full Name" required style="padding: 10px; border-radius: 8px; border: none;">
-      <input type="email" id="signup-email" placeholder="Email Address" required style="padding: 10px; border-radius: 8px; border: none;">
-      <input type="password" id="signup-password" placeholder="Password" required style="padding: 10px; border-radius: 8px; border: none;">
-      <button type="submit" style="padding: 10px; background-color: var(--accent); color: #fff; border: none; border-radius: 8px; font-weight: bold;">Sign Up</button>
-    </form>
-  </div>
-</div>
-
-<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
-
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyA90B4IFvedjMlctwuV0mKTocrkx-6ErD4",
-    authDomain: "safecomms-incorporated.firebaseapp.com",
-    projectId: "safecomms-incorporated",
-    storageBucket: "safecomms-incorporated.appspot.com",
-    messagingSenderId: "1035230396120",
-    appId: "1:1035230396120:web:fbc23f2258ab41a556e1ad",
-    measurementId: "G-6WZK36D0VX"
-  };
-
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-
-  const signupModal = document.getElementById('signup-modal');
-  const signupBtn = document.getElementById('signup-btn');
-  const signupClose = document.getElementById('signup-close');
-
-  signupBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    signupModal.style.display = 'flex';
-  });
-
-  signupClose.addEventListener('click', () => {
-    signupModal.style.display = 'none';
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === signupModal) {
-      signupModal.style.display = 'none';
+    // Close sign-up modal
+    function closeSignUpModal() {
+      document.getElementById('signup-modal').style.display = 'none';
     }
-  });
 
-  document.getElementById('signup-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('signup-email').value;
-    const password = document.getElementById('signup-password').value;
-
-    auth.createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-
-        // Send email verification
-        user.sendEmailVerification()
-          .then(() => {
-            alert("Sign-up successful! Please check your email to verify your account.");
-            signupModal.style.display = 'none';
-          })
-          .catch((error) => {
-            alert("Error sending verification email: " + error.message);
-          });
-      })
-      .catch((error) => {
-        alert("Error: " + error.message);
-      });
-  });
-</script>
-
+    // Handle sign-up form submission
+    document.getElementById('signup-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // Implement backend logic to save user info
+      alert('Sign-up successful!');
+      closeSignUpModal();
+    });
+  </script>
 </body>
 </html>
