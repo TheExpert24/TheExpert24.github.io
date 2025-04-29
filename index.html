@@ -400,58 +400,97 @@
   <div class="services-title">Click on the service cards for more information</div>
   <div class="service-card-container">
     <div class="service-card"><h3>Pronto Chat API Integration</h3><p>Integrate Pronto extensions to your Pronto API for seamless communication and overall improvement in your experience.</p></div>
-    <div class="service-card"><h3>SafeComms Bot Beta</h3><p>Try out the new SafeComms Bot Beta version to enhance your communication experience across various platforms.</p></div>
+    <div class="service-card"><h3>Mod Bot Beta 1</h3><p>Introducing the future of online moderation and disciplinary action. </p></div>
+    <div class="service-card"><h3>Custom GUIs</h3><p>We create GUIs. Period. </p></div>
+    <div class="service-card"><h3>API</h3><p>Our APIs are designed to revolutionize how online communication is done today.</p></div>
   </div>
 </section>
 
-<section class="best-work">
-  <h2>Our Work in Action</h2>
+<section id="best-work" class="best-work">
+  <h2>Our Best Work</h2>
   <div class="video-container">
     <div class="video-box">
-      <iframe src="https://www.youtube.com/embed/CkBx7hR8zHk" title="SafeComms Demo Video"></iframe>
+      <iframe src="https://www.youtube.com/embed/Us1GpnN-Ez0" allowfullscreen></iframe>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2025 SafeComms Incorporated. All Rights Reserved</p>
+  <p>&copy; 2025 SafeComms Incorporated. All rights reserved.</p>
+  <p>Built with ❤️ in Silicon Valley, California & Tallahassee, Florida. Dedicated to global innovation in communication.</p>
 </footer>
 
-<!-- Sign Up Popup -->
-<div class="popup-overlay" id="popup-overlay">
+<!-- Info Popup Modal -->
+<div id="popup" class="popup-overlay">
   <div class="popup-content">
-    <span class="close-btn" id="close-btn">&times;</span>
-    <h3>Sign Up for SafeComms Incorporated</h3>
-    <p>Join our innovative platform and enjoy seamless chat experiences.</p>
-    <form action="#" method="post">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" required><br>
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required><br>
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required><br>
-      <input type="submit" value="Sign Up">
+    <span class="close-btn">&times;</span>
+    <h3 id="popup-title"></h3>
+    <p id="popup-text"></p>
+  </div>
+</div>
+
+<!-- Sign Up Modal -->
+<div id="signup-modal" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" id="signup-close">&times;</span>
+    <h3>Create an Account</h3>
+    <form id="signup-form" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+      <input type="text" placeholder="Full Name" required style="padding: 10px; border-radius: 8px; border: none;">
+      <input type="email" placeholder="Email Address" required style="padding: 10px; border-radius: 8px; border: none;">
+      <input type="password" placeholder="Password" required style="padding: 10px; border-radius: 8px; border: none;">
+      <button type="submit" style="padding: 10px; background-color: var(--accent); color: #fff; border: none; border-radius: 8px; font-weight: bold;">Sign Up</button>
     </form>
   </div>
 </div>
 
 <script>
-  // Popup open and close logic
-  const signupBtn = document.getElementById('signup-btn');
-  const popupOverlay = document.getElementById('popup-overlay');
-  const closeBtn = document.getElementById('close-btn');
-  
-  signupBtn.addEventListener('click', () => {
-    popupOverlay.style.display = 'flex';
+  const popup = document.getElementById('popup');
+  const popupTitle = document.getElementById('popup-title');
+  const popupText = document.getElementById('popup-text');
+  const closeBtn = document.querySelector('.close-btn');
+
+  const popupData = {
+    'Pronto Chat API Integration': "Our Pronto integration tools leverage adaptive infrastructure and hyper-scaling protocols to maximize real-time communication. Join our ecosystem today!",
+    'Mod Bot Beta 1': "The Mod Bot uses advanced AI moderation techniques to help communities stay safe, inclusive, and troll-free — all with minimal input from human admins.",
+    'Custom GUIs': "Our GUIs are designed to create a user interface that brings reliability, quality, and technology all in one. While making it easy to use, we integrate hundreds of features that not only make communication simple, but bring enjoyment and productivity to communication as well.",
+    'API': "SafeComms Incorporated has a close relationship with the Pronto API. However, we are not solely based on making products and GUIs that run on it. Currently, we are in the process of introducing a new GUI from DACMO-Works called BroPro. However, we aren't stopping there. We will soon begin work on our very own API. To follow our progress on any product or get updates, please sign up. Thank you!"
+  };
+
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const title = card.querySelector('h3').innerText;
+      popupTitle.innerText = title;
+      popupText.innerText = popupData[title] || "More details coming soon.";
+      popup.style.display = 'flex';
+    });
   });
 
   closeBtn.addEventListener('click', () => {
-    popupOverlay.style.display = 'none';
+    popup.style.display = 'none';
   });
 
-  window.addEventListener('click', (event) => {
-    if (event.target === popupOverlay) {
-      popupOverlay.style.display = 'none';
+  window.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      popup.style.display = 'none';
+    }
+  });
+
+  const signupModal = document.getElementById('signup-modal');
+  const signupBtn = document.getElementById('signup-btn');
+  const signupClose = document.getElementById('signup-close');
+
+  signupBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    signupModal.style.display = 'flex';
+  });
+
+  signupClose.addEventListener('click', () => {
+    signupModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === signupModal) {
+      signupModal.style.display = 'none';
     }
   });
 </script>
