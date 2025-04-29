@@ -223,7 +223,7 @@
       width: 100%;
       padding: 12px;
       background-color: var(--accent);
-      color: var(--white);
+      color: #fff;
       border: none;
       border-radius: 8px;
       font-weight: bold;
@@ -355,8 +355,17 @@
 
     auth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        alert("Sign-up successful! Welcome to SafeComms.");
-        signupModal.style.display = 'none';
+        const user = userCredential.user;
+
+        // Send email verification
+        user.sendEmailVerification()
+          .then(() => {
+            alert("Sign-up successful! Please check your email to verify your account.");
+            signupModal.style.display = 'none';
+          })
+          .catch((error) => {
+            alert("Error sending verification email: " + error.message);
+          });
       })
       .catch((error) => {
         alert("Error: " + error.message);
