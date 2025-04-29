@@ -400,46 +400,47 @@
   <div class="services-title">Click on the service cards for more information</div>
   <div class="service-card-container">
     <div class="service-card"><h3>Pronto Chat API Integration</h3><p>Integrate Pronto extensions to your Pronto API for seamless communication and overall improvement in your experience.</p></div>
-    <div class="service-card"><h3>Mod Bot Beta 1</h3><p>Introducing the future of online moderation and disciplinary action. </p></div>
-    <div class="service-card"><h3>Custom GUIs</h3><p>We create GUIs. Period. </p></div>
-    <div class="service-card"><h3>API</h3><p>Our APIs are designed to revolutionize how online communication is done.</p></div>
+    <div class="service-card"><h3>SafeComms Bot Beta</h3><p>Try out the new SafeComms Bot Beta version to enhance your communication experience across various platforms.</p></div>
   </div>
 </section>
 
-<section id="best-work" class="best-work">
-  <h2>Our Work, Your World</h2>
+<section class="best-work">
+  <h2>Our Work in Action</h2>
   <div class="video-container">
     <div class="video-box">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/CkBx7hR8zHk" title="SafeComms Demo Video"></iframe>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>SafeComms Incorporated 2025. All rights reserved.</p>
+  <p>© 2025 SafeComms Incorporated. All Rights Reserved</p>
 </footer>
 
-<!-- Sign Up Modal -->
-<div class="popup-overlay" id="signup-overlay">
+<!-- Sign Up Popup -->
+<div class="popup-overlay" id="popup-overlay">
   <div class="popup-content">
     <span class="close-btn" id="close-btn">&times;</span>
-    <h3>Sign Up</h3>
-    <p>Join our community to experience seamless chat technology!</p>
-    <form>
-      <label for="email">Email:</label>
-      <input type="email" id="email" placeholder="Enter your email" required><br><br>
-      <label for="password">Password:</label>
-      <input type="password" id="password" placeholder="Create a password" required><br><br>
-      <button type="submit">Sign Up</button>
+    <h3>Sign Up for SafeComms Incorporated</h3>
+    <p>Join our innovative platform and enjoy seamless chat experiences.</p>
+    <form action="#" method="post">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required><br>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required><br>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required><br>
+      <input type="submit" value="Sign Up">
     </form>
   </div>
 </div>
 
 <script>
+  // Popup open and close logic
   const signupBtn = document.getElementById('signup-btn');
-  const popupOverlay = document.getElementById('signup-overlay');
+  const popupOverlay = document.getElementById('popup-overlay');
   const closeBtn = document.getElementById('close-btn');
-
+  
   signupBtn.addEventListener('click', () => {
     popupOverlay.style.display = 'flex';
   });
@@ -448,8 +449,8 @@
     popupOverlay.style.display = 'none';
   });
 
-  window.addEventListener('click', (e) => {
-    if (e.target === popupOverlay) {
+  window.addEventListener('click', (event) => {
+    if (event.target === popupOverlay) {
       popupOverlay.style.display = 'none';
     }
   });
