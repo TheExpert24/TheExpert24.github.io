@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SafeComms Incorporated</title>
+  <link rel="stylesheet" crossorigin href="/InDeX Files/index-DjySTIxK.css">
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <a href="index.html"><h1>SafeComms Incorporated</h1></a>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">DACMO-Works</a>
+    <a href="Mod Bot Beta 1.html">The Mod Bot Beta 1</a>
+    <a href="#services">Current Products</a>
+    <a href="#services">Pronto API Products</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div id="auth-container">
+    <a href="#" id="signup-btn">Sign In</a>
+    <div id="user-account" class="hidden">
+      <div class="user-avatar">
+        <span class="user-initial"></span>
+      </div>
+      <div class="account-dropdown">
+        <div class="user-info">
+          <p class="user-email"></p>
+          <span class="verification-status"></span>
+        </div>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item" id="profile-link">Profile</a>
+        <a href="#" class="dropdown-item" id="settings-link">Settings</a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item" id="logout-btn">Log Out</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="glass-hero-box">
+    <h2>A Pioneer in Chat Technology since 2024</h2>
+  </div>
+  <p>SafeComms Incorporated was founded to revolutionize communication via chat. We create new chat APIs and GUIs for the greater public with more features and faster responses, as well as Bots and Extensions to enhance user experience. We push technology to its limits to transform how people connect.</p>
+  <img src="images/thelogo.png" alt="SafeComms Logo">
+</section>
+
+<section id="services" class="services">
+  <div class="services-title">Click on the service cards for more information</div>
+  <div class="service-card-container">
+    <div class="service-card"><h3>Pronto Chat API Integration</h3><p>Integrate Pronto extensions to your Pronto API for seamless communication and overall improvement in your experience.</p></div>
+    <div class="service-card"><h3>Mod Bot Beta 1</h3><p>Introducing the future of online moderation and disciplinary action. </p></div>
+    <div class="service-card"><h3>Custom GUIs</h3><p>We create GUIs. Period. </p></div>
+    <div class="service-card"><h3>API</h3><p>Our APIs are designed to revolutionize how online communication is done today.</p></div>
+  </div>
+</section>
+
+<section id="best-work" class="best-work">
+  <h2>Our Best Work</h2>
+  <div class="video-container">
+    <div class="video-box">
+      <iframe src="https://www.youtube.com/embed/Us1GpnN-Ez0" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 SafeComms Incorporated. All rights reserved.</p>
+  <p>Built with ❤️ in Silicon Valley, California & Tallahassee, Florida. Dedicated to global innovation in communication.</p>
+</footer>
+
+<div id="popup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn">×</span>
+    <h3 id="popup-title"></h3>
+    <p id="popup-text"></p>
+  </div>
+</div>
+
+<div id="signup-modal" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" id="signup-close">×</span>
+    <h3>Create an Account</h3>
+    <form id="signup-form">
+      <input type="text" placeholder="Full Name" required>
+      <input type="email" id="signup-email" placeholder="Email Address" required>
+      <input type="password" id="signup-password" placeholder="Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<div id="login-modal" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" id="login-close">×</span>
+    <h3>Log In</h3>
+    <form id="login-form">
+      <input type="email" id="login-email" placeholder="Email Address" required>
+      <input type="password" id="login-password" placeholder="Password" required>
+      <button type="submit">Log In</button>
+    </form>
+    <p class="auth-switch">Don't have an account? <a href="#" id="switch-to-signup">Sign Up</a></p>
+    <p class="forgot-password"><a href="#" id="forgot-password-link">Forgot Password?</a></p>
+  </div>
+</div>
+
+<div id="forgot-password-modal" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" id="forgot-password-close">×</span>
+    <h3>Reset Password</h3>
+    <p>Enter your email address and we'll send you a link to reset your password.</p>
+    <form id="forgot-password-form">
+      <input type="email" id="reset-email" placeholder="Email Address" required>
+      <button type="submit">Send Reset Link</button>
+    </form>
+    <p class="auth-switch"><a href="#" id="back-to-login">Back to Login</a></p>
+  </div>
+</div>
+
+<div style="position: fixed; bottom: 10px; right: 10px; z-index: 1001;">
+  <script type="text/javascript" src="https://cdn.livetrafficfeed.com/static/v5/live.js?bc=ffffff&tc=000000&brd1=2853a8&lnk=135d9e&hc=ffffff&hfc=2853a8&nc=19ff19&vv=409&tft=10&ro=0&tz=America%2FNew_York&res=1"></script>
+  <noscript id="LTF_live_website_visitor">
+    <a href="http://livetrafficfeed.com">Realtime Website Traffic</a>
+  </noscript>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth-compat.js"></script>
+<script src="auth.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
