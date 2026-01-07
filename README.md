@@ -1,1 +1,0 @@
-This is the official GitHub Repository for the website for SafeComms Incorporated. Founded by 2 Intelligent Apes from Stanford Online High School, SafeComms Incorporated is dedicated to building the best communication infrastructure to connect the world via chat.
