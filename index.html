@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SafeComms Incorporated</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #ffffff;
+      color: #111111;
+      overflow: hidden;
+    }
+
+    #landing {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .arrow {
+      position: absolute;
+      bottom: 32px;
+      font-size: 1.6rem;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+    /* Vertical rain transition */
+    #transition {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+      display: none;
+    }
+
+    .column {
+      position: absolute;
+      top: -100%;
+      height: 100%;
+      width: 12px;
+      animation: fall 0.9s cubic-bezier(.4,0,.2,1) forwards;
+    }
+
+    .blue { background: #0b3c5d; }
+    .white { background: #ffffff; }
+
+    @keyframes fall {
+      to { top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <section id="landing">
+    <div class="logo">SafeComms Incorporated</div>
+    <div class="arrow" id="enter">↓</div>
+  </section>
+
+  <div id="transition"></div>
+
+  <script>
+    const enter = document.getElementById('enter');
+    const transition = document.getElementById('transition');
+
+    enter.onclick = () => {
+      // Hide landing content immediately so it does not show during transition
+      document.getElementById('landing').style.visibility = 'hidden';
+
+      transition.style.display = 'block';
+
+      const count = Math.ceil(window.innerWidth / 14);
+      for (let i = 0; i < count; i++) {
+        const strip = document.createElement('div');
+        strip.className = 'column ' + (i % 2 === 0 ? 'blue' : 'white');
+        strip.style.left = (i * 14) + 'px';
+        strip.style.animationDelay = (Math.random() * 0.4) + 's';
+        transition.appendChild(strip);
+      }
+
+      setTimeout(() => {
+        window.location.href = 'about.html';
+      }, 1400);
+    };
+  </script>
+
+</body>
+</html>
+
