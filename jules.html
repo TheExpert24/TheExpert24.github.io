@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jules Miller | Nixon Incorporated</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f6f2;
+      --sheet: #ffffff;
+      --ink: #111111;
+      --muted: #626262;
+      --line: #e6e6df;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: radial-gradient(90rem 50rem at 100% -15%, #ffffff 0%, #f1f1eb 40%, transparent 75%), var(--bg);
+      color: var(--ink);
+      font-family: "General Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.028) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.028) 1px, transparent 1px);
+      background-size: 42px 42px;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 95%);
+    }
+
+    .site {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, 93vw);
+      margin: 18px auto 28px;
+      background: var(--sheet);
+      border: 1px solid var(--line);
+      box-shadow: 0 25px 60px rgba(16, 16, 16, 0.08);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      min-height: min(58vh, 560px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-left {
+      padding: clamp(26px, 5vw, 54px);
+      border-right: 1px solid var(--line);
+      background: linear-gradient(155deg, #ffffff 0%, #f5f5ee 100%);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2rem, 6vw, 5rem);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .hero-line {
+      width: min(180px, 32vw);
+      height: 3px;
+      background: linear-gradient(90deg, #111111, #999999 80%, transparent);
+      margin-top: 16px;
+    }
+
+    .portrait {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #ecece6, #f7f7f3);
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    section {
+      padding: clamp(22px, 3.2vw, 34px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .left-column {
+      border-right: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(0.95rem, 2vw, 1.25rem);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-weight: 700;
+    }
+
+    .rule {
+      width: 64px;
+      height: 2px;
+      margin: 14px 0 18px;
+      background: linear-gradient(90deg, #111111, #8a8a8a);
+    }
+
+    p, li {
+      margin: 0;
+      color: #1d1d1d;
+      line-height: 1.8;
+      font-size: clamp(0.93rem, 1.25vw, 1rem);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    a {
+      color: #131313;
+      text-decoration: none;
+      border-bottom: 1px solid #d4d4d4;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 16px clamp(22px, 3.2vw, 34px) 20px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: #fbfbf8;
+    }
+
+    #intro-transition {
+      position: fixed;
+      inset: 0;
+      z-index: 25;
+      display: grid;
+      grid-template-columns: repeat(20, 1fr);
+      pointer-events: none;
+      background: #ffffff;
+    }
+
+    .intro-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.4rem 1rem;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(1rem, 3.4vw, 2.2rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #111111;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      mix-blend-mode: multiply;
+      animation: titlePulse 0.8s ease both;
+    }
+
+    .col {
+      transform: translateY(-100%);
+      background: linear-gradient(180deg, #fafaf7 0%, #ecece6 100%);
+      border-right: 1px solid #e5e5df;
+      animation: drop 0.62s cubic-bezier(0.37, 0.02, 0.15, 1) forwards;
+    }
+
+    .col:nth-child(2n) { background: linear-gradient(180deg, #ffffff 0%, #f3f3ed 100%); }
+    .col:nth-child(3n) { animation-duration: 0.74s; }
+    .fade-out { animation: vanish 0.35s ease forwards; }
+
+    @keyframes drop { to { transform: translateY(0); } }
+    @keyframes vanish { to { opacity: 0; visibility: hidden; } }
+    @keyframes titlePulse {
+      from { opacity: 0; transform: translate(-50%, calc(-50% + 8px)) scale(0.98); }
+      to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+
+    @media (max-width: 920px) {
+      .hero, main { grid-template-columns: 1fr; }
+      .hero-left, .left-column { border-right: 0; }
+      .portrait { min-height: 320px; }
+      #intro-transition { grid-template-columns: repeat(12, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div id="intro-transition" aria-hidden="true"></div>
+
+  <div class="site">
+    <header class="hero">
+      <div class="hero-left">
+        <h1>Jules Miller</h1>
+        <div class="hero-line"></div>
+        <p class="intro">High School Student, Programmer, Son, Brother, Devout Floridian</p>
+      </div>
+      <div class="portrait">
+        <img src="images/321123321312.png" alt="Portrait of Jules Miller" />
+      </div>
+    </header>
+
+    <main>
+      <div class="left-column">
+        <section>
+          <h2>About Me</h2>
+          <div class="rule"></div>
+          <p>I’m a high school junior from North Florida. I like coding, soccer, piano, and chess. I first started coding at age 11, when I started learning Javascript from a book. I took some CS classes in middle school and got up to Data Structures and Algorithms, but I haven’t taken any in high school. I know how to code in Java, Javascript, Python, HTML/CSS, C, and a bit of C# and Assembly. I like to code web apps and projects relating to geography. Lately I’ve been working with my friend Vajra Vanukuri on Smiggles, a lightweight operating system built from the ground up.</p>
+        </section>
+
+        <section>
+          <h2>Achievements</h2>
+          <div class="rule"></div>
+          <ul>
+            <li>2025 FTC Robotics/APC Hackathon Winners</li>
+            <li>A lot of Piano Awards</li>
+            <li>Nixon Incorporated</li>
+          </ul>
+        </section>
+      </div>
+
+      <div>
+        <section>
+          <h2>Contact</h2>
+          <div class="rule"></div>
+          <p><a href="mailto:jules328@ohs.stanford.edu">Email</a></p>
+          <p><a href="https://www.linkedin.com/in/jules-miller-a38881377/">LinkedIn</a></p>
+          <p><a href="https://github.com/thejavamonster">GitHub</a></p>
+          <p><a href="https://www.youtube.com/@thejavamonster">YouTube</a></p>
+        </section>
+
+        <section>
+          <h2>What I Do</h2>
+          <div class="rule"></div>
+          <p>Java, Javascript, Python, HTML/CSS, C, and a bit of C# and Assembly.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer>© Nixon Incorporated</footer>
+  </div>
+
+  <script>
+    const intro = document.getElementById("intro-transition");
+    const columns = window.innerWidth < 920 ? 12 : 20;
+
+    const introTitle = document.createElement("div");
+    introTitle.className = "intro-title";
+    introTitle.textContent = "Nixon Incorporated";
+    intro.appendChild(introTitle);
+
+    for (let i = 0; i < columns; i += 1) {
+      const strip = document.createElement("div");
+      strip.className = "col";
+      strip.style.animationDelay = `${Math.random() * 0.34}s`;
+      intro.appendChild(strip);
+    }
+
+    window.addEventListener("load", () => {
+      setTimeout(() => intro.classList.add("fade-out"), 760);
+      setTimeout(() => intro.remove(), 1180);
+    });
+  </script>
+</body>
+</html>
