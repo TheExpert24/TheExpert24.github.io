@@ -4,6 +4,11 @@
       "title": "Websudoku Update: The Lichess of Sudoku",
       "date": "April 2, 2026",
       "body": "Websudoku has been updated so users can now send reuqests to other users via signing in. It it is a simple sign in that is untraceable and does not involve your google account. You can play a game of sudoku with the player you send a request to. Also, the old multiplayer has been turned into a wild card multiplayer, where you can play with a random player."
-    }
+    },
+    {
+      "title": "Smiggles OS Development",
+      "date": "April 3, 2026",
+      "body": "Lately, the Nixon Incorporated team has been working on our most ambitious project, Smiggles. Smiggles is an 11,000+ line lightweight operating system that we are developing from sratch. At 54 MB, smiggles is a pretty light operating system. If you want to stay updated or take a look at the source code for Smiggles OS, take a look at our github repository and check the official Nixon Incorporated bulletin for more updates."
+    }  
   ]
 }
