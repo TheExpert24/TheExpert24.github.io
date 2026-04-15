@@ -295,6 +295,169 @@
       color: #6f6f68;
     }
 
+    .code-report {
+      background: linear-gradient(180deg, #ffffff 0%, #f8f8f3 100%);
+    }
+
+    .report-copy {
+      margin-top: -2px;
+      max-width: 60ch;
+      color: #595954;
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .report-card {
+      padding: 18px 18px 16px;
+      border: 1px solid #dcdcd4;
+      background: #ffffff;
+      box-shadow: 0 12px 24px rgba(17, 17, 17, 0.04);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.45s ease, transform 0.45s ease, border-color 0.2s ease;
+    }
+
+    .code-report.is-visible .report-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .code-report.is-visible .report-card:nth-child(2) {
+      transition-delay: 0.06s;
+    }
+
+    .code-report.is-visible .report-card:nth-child(3) {
+      transition-delay: 0.12s;
+    }
+
+    .code-report.is-visible .report-card:nth-child(4) {
+      transition-delay: 0.18s;
+    }
+
+    .code-report.is-visible .report-card:nth-child(5) {
+      transition-delay: 0.24s;
+    }
+
+    .code-report.is-visible .report-card:nth-child(6) {
+      transition-delay: 0.3s;
+    }
+
+    .report-number {
+      display: block;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2rem, 4.2vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .report-label {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6c6c66;
+    }
+
+    .report-note {
+      margin-top: 10px;
+      font-size: 0.86rem;
+      color: #353532;
+      line-height: 1.55;
+    }
+
+    .report-breakdown {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #d8d8d1;
+    }
+
+    .report-breakdown-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #6f6f68;
+      margin-bottom: 12px;
+    }
+
+    .report-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .report-list-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px dotted #d5d5ce;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .code-report.is-visible .report-list-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(2) {
+      transition-delay: 0.06s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(3) {
+      transition-delay: 0.12s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(4) {
+      transition-delay: 0.18s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(5) {
+      transition-delay: 0.24s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(6) {
+      transition-delay: 0.3s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(7) {
+      transition-delay: 0.36s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(8) {
+      transition-delay: 0.42s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(9) {
+      transition-delay: 0.48s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(10) {
+      transition-delay: 0.54s;
+    }
+
+    .report-file {
+      font-size: 0.9rem;
+      color: #1c1c1a;
+    }
+
+    .report-value {
+      font-family: "Manrope", sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: #111111;
+      flex: 0 0 auto;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       padding: 16px clamp(22px, 3.2vw, 34px) 20px;
@@ -477,33 +640,49 @@
         <div class="hero-line"></div>
       </div>
       <div class="hero-image-wrap">
-        <img src="images/80cc9fa0-fe05-11f0-9a16-2db6adb4431d.png" alt="Richard Nixon" />
+        <img src="images/smiggles.png" alt="Smiggles" />
       </div>
     </header>
 
     <main class="content">
       <div class="left-column">
         <section>
-          <h2>The Future</h2>
+          <h2><a href="https://github.com/TheExpert24/smiggles">Smiggles</a></h2>
           <div class="rule"></div>
           <p>
-            <b>Is AI really the future?</b> Nah. Nixon Incorporated is founded by two intelligent apes<br> who believe that coding is better by hand. We make cool projects that change the way we use technology, bringing convenience to your computer.
+            <b>Smiggles</b> is a lightweight operating system coded primarily from C and Assembly. It boots on GRUB and MemoryBoot2, meaning you could run it on real hardware. It has a file system, networking, a package installer,  basic interpreter, command line, and many other cool features that make up an operating system. My friend Jules Miller and I having been working on this project for 3 months. Sitting at over 15,000 lines of code, this behemoth is a massive headache to work on, but we adamant to topple the regime built by Apple, Microsoft, and Linux, with Smiggles. 
           </p>
         </section>
 
         <section>
-          <h2>Our Projects</h2>
+          <h2>Go To Our Projects</h2>
           <div class="rule"></div>
           <p>
-            <a href="https://enkryptonite.onrender.com/">Enkryptonite</a><br><a href="https://websudoku.me/">Websudoku</a><br><a href="https://bill-bsaf.onrender.com/">Bill</a><br><a href="https://chromewebstore.google.com/detail/war-on-the-wallpapers/iealdemdcennfgghlheekmipcdlfmoje">War on the Wallpapers</a><br><a href="smiggles.html">Smiggles</a><br><a href="https://rapidapi.com/expressvanukuri/api/tradex3/playground/apiendpoint_c9157efe-297c-436f-9777-d0bfd432682e">Tradex-Api</a>
+            <a href="https://enkryptonite.onrender.com/">Enkryptonite</a><br><a href="https://websudoku.me/">Websudoku</a><br><a href="https://bill-bsaf.onrender.com/">Bill</a><br><a href="https://chromewebstore.google.com/detail/war-on-the-wallpapers/iealdemdcennfgghlheekmipcdlfmoje">War on the Wallpapers</a><br><a href="https://github.com/TheExpert24/smiggles">Smiggles</a><br><a href="https://rapidapi.com/expressvanukuri/api/tradex3/playground/apiendpoint_c9157efe-297c-436f-9777-d0bfd432682e">Tradex-Api</a>
           </p>
         </section>
 
+        <section class="code-report" id="code-report" aria-labelledby="code-report-title">
+          <h2 id="code-report-title">Our Hard Work</h2>
+          <div class="rule"></div>
+          <p class="report-copy">
+            Smiggles Stats
+          </p>
+
+          <div class="report-grid" id="report-grid"></div>
+
+          <div class="report-breakdown">
+            <div class="report-breakdown-title">Scraped From <a href="https://github.com/TheExpert24/smiggles.git">https://github.com/TheExpert24/smiggles.git</a></div>
+            <ul class="report-list" id="report-list"></ul>
+          </div>
+        </section>
+
         <section>
-          <h2>Services</h2>
+          <h2>Follow our progress</h2>
           <div class="rule"></div>
           <p>
-            <b>Websites for Small Businesses/Anyone [$10-$30]</b> If you’re a small business that needs a website for your products, or just someone who wants a personal website and doesn’t want to deal with learning code, using a website building platform like Canva or Square Space, or some source of AI, look no further. We build websites with HTML, CSS, and JavaScript — mostly hand-coded. Pricing is usually $10–$30, depending on your specs. Contact us for more information or to see our previous work.
+            <a href="https://github.com/TheExpert24/smiggles.git">Github</a><br>
+            <a href="https://www.youtube.com/watch?v=oAvqzA_Cw2o">Youtube</a>
           </p>
         </section>
 
@@ -511,8 +690,8 @@
           <h2>Contact</h2>
           <div class="rule"></div>
           <p>
-            <b><a href="vajra.html">Vajra Vanukuri</a>:</b> vajra@ohs.stanford.edu<br>
-            <b><a href="jules.html">Jules Miller</a>:</b> jules328@ohs.stanford.edu
+            <b><a href="vajra.html">Vajra Vanukuri</a>:</b> <a href="mailto:vajra@ohs.stanford.edu">vajra@ohs.stanford.edu</a><br>
+            <b><a href="jules.html">Jules Miller</a>:</b> <a href="mailto:jules328@ohs.stanford.edu">jules328@ohs.stanford.edu</a>
           </p>
         </section>
       </div>
@@ -542,6 +721,23 @@
   <script>
     const intro = document.getElementById("intro-transition");
     const columns = window.innerWidth < 920 ? 12 : 20;
+    const codeReportData = {
+      cards: [
+        { label: "Total lines", value: 15295,note:""},
+        { label: "myos", value: 14815,note:""},
+        { label: "tools", value: 268,note:""},
+        { label: "docs", value: 97,note:""},
+        { label: "root", value: 97,note:""},
+        { label: "packages", value: 18,note:""}
+      ],
+      folders: [
+        { label: "myos", value: 14815 },
+        { label: "tools", value: 268 },
+        { label: "docs", value: 97 },
+        { label: "root", value: 97 },
+        { label: "packages", value: 18 }
+      ]
+    };
 
     const introTitle = document.createElement("div");
     introTitle.className = "intro-title";
@@ -553,6 +749,82 @@
       strip.className = "col";
       strip.style.animationDelay = `${Math.random() * 0.34}s`;
       intro.appendChild(strip);
+    }
+
+    function formatCount(value) {
+      return new Intl.NumberFormat("en-US").format(value);
+    }
+
+    function animateCount(element, targetValue, duration = 2000) {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (prefersReducedMotion) {
+        element.textContent = formatCount(targetValue);
+        return;
+      }
+
+      const startTime = performance.now();
+
+      function tick(currentTime) {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const currentValue = Math.round(targetValue * eased);
+
+        element.textContent = formatCount(currentValue);
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          element.textContent = formatCount(targetValue);
+        }
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    function buildCodeReport() {
+      const grid = document.getElementById("report-grid");
+      const list = document.getElementById("report-list");
+
+      grid.innerHTML = codeReportData.cards
+        .map(
+          (item) => `
+            <article class="report-card">
+              <span class="report-number" data-target="${item.value}">0</span>
+              <span class="report-label">${item.label}</span>
+              <div class="report-note">${item.note}</div>
+            </article>
+          `
+        )
+        .join("");
+
+      list.innerHTML = codeReportData.folders
+        .map(
+          (item) => `
+            <li class="report-list-item">
+              <span class="report-file">${item.label}</span>
+              <span class="report-value" data-target="${item.value}">0</span>
+            </li>
+          `
+        )
+        .join("");
+    }
+
+    function animateCodeReport() {
+      const section = document.getElementById("code-report");
+      const counters = section.querySelectorAll("[data-target]");
+
+      if (section.dataset.animated === "true") {
+        return;
+      }
+
+      section.dataset.animated = "true";
+      section.classList.add("is-visible");
+
+      counters.forEach((counter) => {
+        const targetValue = Number(counter.dataset.target || "0");
+        animateCount(counter, targetValue);
+      });
     }
 
     function newsItemTemplate(item) {
@@ -586,24 +858,19 @@
       }
 
       if (!items.length) {
-        items = [
-          {
-            title: "Latest Update Slot",
-            date: "Date Placeholder",
-            body: "Use this block for the newest release update, short status note, or shipping announcement."
-          },
-          {
-            title: "Product Journal Slot",
-            date: "Date Placeholder",
-            body: "Write a quick blog-style entry here whenever a project improves, launches, or gets a major patch."
-          },
-          {
-            title: "Community Note Slot",
-            date: "Date Placeholder",
-            body: "Add any important notice, roadmap teaser, or direct message to users in this section."
-          }
+        items= [
+            {
+                "title": "Websudoku Update: The Lichess of Sudoku",
+                "date": "April 2, 2026",
+                "body": "Websudoku has been updated so users can now send reuqests to other users via signing in. It it is a simple sign in that is untraceable and does not involve your google account. You can play a game of sudoku with the player you send a request to. Also, the old multiplayer has been turned into a wild card multiplayer, where you can play with a random player."
+            },
+            {
+                "title": "Smiggles OS Development",
+                "date": "April 3, 2026",
+                "body": "Lately, the Nixon Incorporated team has been working on our most ambitious project, Smiggles. Smiggles is an 11,000+ line lightweight operating system that we are developing from sratch. At 1.44 MB, smiggles is a pretty light operating system. If you want to stay updated or take a look at the source code for Smiggles OS, take a look at our github repository and check the official Nixon Incorporated bulletin for more updates."
+            }  
         ];
-      }
+    }
 
       const rendered = `<div class="news-list">${items.map(newsItemTemplate).join("")}</div>`;
       track.innerHTML = rendered;
@@ -619,7 +886,26 @@
     }
 
     window.addEventListener("load", async () => {
+      buildCodeReport();
       await loadNews();
+
+      const reportSection = document.getElementById("code-report");
+      const reportObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCodeReport();
+              reportObserver.disconnect();
+            }
+          });
+        },
+        {
+          threshold: 0.35,
+          rootMargin: "0px 0px -10% 0px"
+        }
+      );
+
+      reportObserver.observe(reportSection);
 
       setTimeout(() => {
         intro.classList.add("fade-out");
