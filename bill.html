@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nixon Incorporated</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=General+Sans:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f6f2;
+      --sheet: #ffffff;
+      --ink: #111111;
+      --muted: #626262;
+      --line: #e6e6df;
+      --soft: #f2f2ec;
+      --accent: #ff2f2f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: radial-gradient(90rem 50rem at 100% -15%, #ffffff 0%, #f1f1eb 40%, transparent 75%), var(--bg);
+      color: var(--ink);
+      font-family: "General Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.028) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.028) 1px, transparent 1px);
+      background-size: 42px 42px;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 95%);
+    }
+
+    .site {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, 93vw);
+      margin: 18px auto 28px;
+      background: var(--sheet);
+      border: 1px solid var(--line);
+      box-shadow: 0 25px 60px rgba(16, 16, 16, 0.08);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--line);
+      min-height: min(63vh, 620px);
+    }
+
+    .hero-left {
+      padding: clamp(26px, 5vw, 54px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--line);
+      background: linear-gradient(155deg, #ffffff 0%, #f5f5ee 100%);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2rem, 6vw, 5.3rem);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      animation: revealUp 0.7s ease both;
+    }
+
+    .hero-line {
+      width: min(180px, 32vw);
+      height: 3px;
+      background: linear-gradient(90deg, #111111, #999999 80%, transparent);
+      margin-top: 16px;
+      animation: expand 0.85s ease both;
+      transform-origin: left;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #efefe8;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.06);
+      animation: zoomIn 1.25s ease both;
+    }
+
+    .hero-image-wrap::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 42%;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.56), transparent);
+      pointer-events: none;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 0;
+    }
+
+    .left-column {
+      border-right: 1px solid var(--line);
+    }
+
+    section {
+      padding: clamp(22px, 3.2vw, 34px);
+      border-bottom: 1px solid var(--line);
+      background: #ffffff;
+      transition: background-color 0.18s ease;
+    }
+
+    section:hover {
+      background: #fafaf6;
+    }
+
+    section:last-child {
+      border-bottom: 0;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(0.95rem, 2vw, 1.25rem);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-weight: 700;
+      animation: revealUp 0.75s ease both;
+    }
+
+    .rule {
+      width: 64px;
+      height: 2px;
+      margin: 14px 0 18px;
+      background: linear-gradient(90deg, #111111, #8a8a8a);
+    }
+
+    p {
+      margin: 0;
+      color: #1d1d1d;
+      line-height: 1.8;
+      max-width: 75ch;
+      font-size: clamp(0.93rem, 1.25vw, 1rem);
+    }
+
+    a {
+      color: #131313;
+      text-decoration: none;
+      border-bottom: 1px solid #d4d4d4;
+      transition: border-color 0.18s ease, color 0.18s ease;
+    }
+
+    a:hover {
+      color: #000000;
+      border-bottom-color: #000000;
+    }
+
+    .right-column {
+      min-height: 100%;
+      background: #fbfbf8;
+      min-height: 0;
+    }
+
+    .news-column {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 22px 22px 18px;
+      min-height: 0;
+    }
+
+    .news-masthead {
+      border-bottom: 1px solid #d8d8d1;
+      padding-bottom: 14px;
+      margin-bottom: 10px;
+    }
+
+    .news-kicker {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6d6d66;
+      margin-bottom: 8px;
+    }
+
+    .news-title {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.56rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+    }
+
+    .news-subtitle {
+      margin: 10px 0 0;
+      font-size: 0.82rem;
+      color: #72726d;
+      line-height: 1.6;
+    }
+
+    .news-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .news-rail {
+      margin-top: 6px;
+      position: relative;
+      overflow: hidden;
+      flex: 0 0 auto;
+      height: clamp(260px, 55vh, 520px);
+      border-top: 1px dotted #d5d5ce;
+      border-bottom: 1px dotted #d5d5ce;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 248, 243, 0.92));
+    }
+
+    .news-track {
+      will-change: transform;
+      animation: none;
+      min-height: 0;
+    }
+
+    .news-rail.is-scrolling .news-track {
+      animation: tickerScroll 16s linear infinite;
+    }
+
+    .news-rail:hover .news-track {
+      animation-play-state: paused;
+    }
+
+    .news-item {
+      border-bottom: 1px dotted #d5d5ce;
+      padding: 14px 0 13px;
+    }
+
+    .news-item:last-child {
+      border-bottom: 0;
+    }
+
+    .news-item h3 {
+      margin: 0;
+      font-size: 0.93rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .news-meta {
+      display: block;
+      margin: 7px 0 8px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #7a7a74;
+    }
+
+    .news-item p {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: #2b2b28;
+      max-width: none;
+    }
+
+    .news-note {
+      margin-top: 12px;
+      border-top: 1px solid #d8d8d1;
+      padding-top: 12px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: #6f6f68;
+    }
+
+    .code-report {
+      background: linear-gradient(180deg, #ffffff 0%, #f8f8f3 100%);
+    }
+
+    .report-copy {
+      margin-top: -2px;
+      max-width: 60ch;
+      color: #595954;
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .report-card {
+      padding: 18px 18px 16px;
+      border: 1px solid #dcdcd4;
+      background: #ffffff;
+      box-shadow: 0 12px 24px rgba(17, 17, 17, 0.04);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.45s ease, transform 0.45s ease, border-color 0.2s ease;
+    }
+
+    .code-report.is-visible .report-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .code-report.is-visible .report-card:nth-child(2) {
+      transition-delay: 0.06s;
+    }
+
+    .code-report.is-visible .report-card:nth-child(3) {
+      transition-delay: 0.12s;
+    }
+
+    .code-report.is-visible .report-card:nth-child(4) {
+      transition-delay: 0.18s;
+    }
+
+    .code-report.is-visible .report-card:nth-child(5) {
+      transition-delay: 0.24s;
+    }
+
+    .code-report.is-visible .report-card:nth-child(6) {
+      transition-delay: 0.3s;
+    }
+
+    .report-number {
+      display: block;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2rem, 4.2vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .report-label {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6c6c66;
+    }
+
+    .report-note {
+      margin-top: 10px;
+      font-size: 0.86rem;
+      color: #353532;
+      line-height: 1.55;
+    }
+
+    .report-breakdown {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #d8d8d1;
+    }
+
+    .report-breakdown-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #6f6f68;
+      margin-bottom: 12px;
+    }
+
+    .report-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .report-list-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px dotted #d5d5ce;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .code-report.is-visible .report-list-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(2) {
+      transition-delay: 0.06s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(3) {
+      transition-delay: 0.12s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(4) {
+      transition-delay: 0.18s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(5) {
+      transition-delay: 0.24s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(6) {
+      transition-delay: 0.3s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(7) {
+      transition-delay: 0.36s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(8) {
+      transition-delay: 0.42s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(9) {
+      transition-delay: 0.48s;
+    }
+
+    .code-report.is-visible .report-list-item:nth-child(10) {
+      transition-delay: 0.54s;
+    }
+
+    .report-file {
+      font-size: 0.9rem;
+      color: #1c1c1a;
+    }
+
+    .report-value {
+      font-family: "Manrope", sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: #111111;
+      flex: 0 0 auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 16px clamp(22px, 3.2vw, 34px) 20px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: #fbfbf8;
+    }
+
+    #intro-transition {
+      position: fixed;
+      inset: 0;
+      z-index: 25;
+      display: grid;
+      grid-template-columns: repeat(20, 1fr);
+      pointer-events: none;
+      background: #ffffff;
+    }
+
+    .intro-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.4rem 1rem;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(1rem, 3.4vw, 2.2rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #111111;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      mix-blend-mode: multiply;
+      animation: titlePulse 0.8s ease both;
+    }
+
+    .col {
+      transform: translateY(-100%);
+      background: linear-gradient(180deg, #fafaf7 0%, #ecece6 100%);
+      border-right: 1px solid #e5e5df;
+      animation: drop 0.62s cubic-bezier(0.37, 0.02, 0.15, 1) forwards;
+    }
+
+    .col:nth-child(2n) {
+      background: linear-gradient(180deg, #ffffff 0%, #f3f3ed 100%);
+    }
+
+    .col:nth-child(3n) {
+      animation-duration: 0.74s;
+    }
+
+    .fade-out {
+      animation: vanish 0.35s ease forwards;
+    }
+
+    @keyframes drop {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes vanish {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    @keyframes revealUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes expand {
+      from {
+        transform: scaleX(0.2);
+        opacity: 0;
+      }
+      to {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(1.08);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes tickerScroll {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-50%);
+      }
+    }
+
+    @keyframes titlePulse {
+      from {
+        opacity: 0;
+        transform: translate(-50%, calc(-50% + 8px)) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-left {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        min-height: 210px;
+      }
+
+      .hero-image-wrap {
+        min-height: 320px;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .left-column {
+        border-right: 0;
+      }
+
+      .right-column {
+        border-top: 1px solid var(--line);
+      }
+
+      #intro-transition {
+        grid-template-columns: repeat(12, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .site {
+        width: 100%;
+        margin: 0;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .right-column {
+        border-top: 1px solid var(--line);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="intro-transition" aria-hidden="true"></div>
+
+  <div class="site">
+    <header class="hero">
+      <div class="hero-left">
+        <h1><a href="about.html">Nixon Incorporated</a></h1>
+        <div class="hero-line"></div>
+      </div>
+      <div class="hero-image-wrap">
+        <img src="images/bill2.png" alt="Bill" />
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="left-column">
+        <section>
+          <h2><a href="https://bill-bsaf.onrender.com/">Bill</a></h2>
+          <div class="rule"></div>
+          <p>
+            <b>Bill</b> is a strock recommendation website that tkaes your capital, risk tolerance, and time constraints to give you a stock recommendations that use hedge fund algorithms to analyze all stocks in the S&P 500 using the yahoo finance API and the News API. We've tested the recommendations given by Bill on paper trading, and the results have been positive, making us $20,000 extra with a capital of $100,000 on Investopedia. 
+          </p>
+        </section>
+
+        <section>
+          <h2>Go To Our Projects</h2>
+          <div class="rule"></div>
+          <p>
+            <a href="https://enkryptonite.onrender.com/">Enkryptonite</a><br><a href="https://websudoku.me/">Websudoku</a><br><a href="https://bill-bsaf.onrender.com/">Bill</a><br><a href="https://chromewebstore.google.com/detail/war-on-the-wallpapers/iealdemdcennfgghlheekmipcdlfmoje">War on the Wallpapers</a><br><a href="https://github.com/TheExpert24/smiggles">Smiggles</a><br><a href="https://rapidapi.com/expressvanukuri/api/tradex3/playground/apiendpoint_c9157efe-297c-436f-9777-d0bfd432682e">Tradex-Api</a>
+          </p>
+        </section>
+
+        <section class="code-report" id="code-report" aria-labelledby="code-report-title">
+          <h2 id="code-report-title">Our Hard Work</h2>
+          <div class="rule"></div>
+          <p class="report-copy">
+            Bill Stats
+          </p>
+
+          <div class="report-grid" id="report-grid"></div>
+
+          <div class="report-breakdown">
+            <div class="report-breakdown-title">Scraped From <a href="https://github.com/TheExpert24/Bill.git">https://github.com/TheExpert24/Bill.git</a></div>
+            <ul class="report-list" id="report-list"></ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Follow our progress</h2>
+          <div class="rule"></div>
+          <p>
+            <a href="https://github.com/TheExpert24/Bill.git">Github</a><br>
+            <a href="https://www.youtube.com/watch?v=nhN6buNS3GA">Youtube</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>Contact</h2>
+          <div class="rule"></div>
+          <p>
+            <b><a href="vajra.html">Vajra Vanukuri</a>:</b> <a href="mailto:vajra@ohs.stanford.edu">vajra@ohs.stanford.edu</a><br>
+            <b><a href="jules.html">Jules Miller</a>:</b> <a href="mailto:jules328@ohs.stanford.edu">jules328@ohs.stanford.edu</a>
+          </p>
+        </section>
+      </div>
+
+      <aside class="right-column" aria-label="Nixon Incorporated News">
+        <div class="news-column">
+          <div class="news-masthead">
+            <div class="news-kicker">Nixon Incorporated News</div>
+            <h2 class="news-title">Updates</h2>
+            <p class="news-subtitle">We don't require you to sign in, so we can spam your inbox. We deliver you updates right here on the website.</p>
+          </div>
+
+          <div class="news-rail" aria-live="polite">
+            <div class="news-track" id="news-track"></div>
+          </div>
+
+          <div class="news-note">Only Nixon Incorporated posts appear in this column</div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      © Nixon Incorporated
+    </footer>
+  </div>
+
+  <script>
+    const intro = document.getElementById("intro-transition");
+    const columns = window.innerWidth < 920 ? 12 : 20;
+    const codeReportData = {
+      cards: [
+        { label: "Total lines", value: 4968,note:""},
+        { label: "root", value: 4326,note:""},
+        { label: "templates", value: 641,note:""},
+        { label: "static", value: 1,note:""}
+      ],
+      folders: [
+        { label: "root", value: 4326 },
+        { label: "templates", value: 641 },
+        { label: "static", value: 1 }
+      ]
+    };
+
+    const introTitle = document.createElement("div");
+    introTitle.className = "intro-title";
+    introTitle.textContent = "Nixon Incorporated";
+    intro.appendChild(introTitle);
+
+    for (let i = 0; i < columns; i += 1) {
+      const strip = document.createElement("div");
+      strip.className = "col";
+      strip.style.animationDelay = `${Math.random() * 0.34}s`;
+      intro.appendChild(strip);
+    }
+
+    function formatCount(value) {
+      return new Intl.NumberFormat("en-US").format(value);
+    }
+
+    function animateCount(element, targetValue, duration = 2000) {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (prefersReducedMotion) {
+        element.textContent = formatCount(targetValue);
+        return;
+      }
+
+      const startTime = performance.now();
+
+      function tick(currentTime) {
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const currentValue = Math.round(targetValue * eased);
+
+        element.textContent = formatCount(currentValue);
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          element.textContent = formatCount(targetValue);
+        }
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    function buildCodeReport() {
+      const grid = document.getElementById("report-grid");
+      const list = document.getElementById("report-list");
+
+      grid.innerHTML = codeReportData.cards
+        .map(
+          (item) => `
+            <article class="report-card">
+              <span class="report-number" data-target="${item.value}">0</span>
+              <span class="report-label">${item.label}</span>
+              <div class="report-note">${item.note}</div>
+            </article>
+          `
+        )
+        .join("");
+
+      list.innerHTML = codeReportData.folders
+        .map(
+          (item) => `
+            <li class="report-list-item">
+              <span class="report-file">${item.label}</span>
+              <span class="report-value" data-target="${item.value}">0</span>
+            </li>
+          `
+        )
+        .join("");
+    }
+
+    function animateCodeReport() {
+      const section = document.getElementById("code-report");
+      const counters = section.querySelectorAll("[data-target]");
+
+      if (section.dataset.animated === "true") {
+        return;
+      }
+
+      section.dataset.animated = "true";
+      section.classList.add("is-visible");
+
+      counters.forEach((counter) => {
+        const targetValue = Number(counter.dataset.target || "0");
+        animateCount(counter, targetValue);
+      });
+    }
+
+    function newsItemTemplate(item) {
+      const title = item.title || "Update Slot";
+      const date = item.date || "Date Placeholder";
+      const body = item.body || "Add your update here.";
+      return `
+        <article class="news-item">
+          <h3>${title}</h3>
+          <span class="news-meta">${date}</span>
+          <p>${body}</p>
+        </article>
+      `;
+    }
+
+    async function loadNews() {
+      const track = document.getElementById("news-track");
+      const rail = track.parentElement;
+      let items = [];
+
+      try {
+        const response = await fetch("news.json", { cache: "no-store" });
+        if (response.ok) {
+          const data = await response.json();
+          if (Array.isArray(data.items)) {
+            items = data.items;
+          }
+        }
+      } catch (error) {
+        items = [];
+      }
+
+      if (!items.length) {
+        items= [
+            {
+                "title": "Websudoku Update: The Lichess of Sudoku",
+                "date": "April 2, 2026",
+                "body": "Websudoku has been updated so users can now send reuqests to other users via signing in. It it is a simple sign in that is untraceable and does not involve your google account. You can play a game of sudoku with the player you send a request to. Also, the old multiplayer has been turned into a wild card multiplayer, where you can play with a random player."
+            },
+            {
+                "title": "Smiggles OS Development",
+                "date": "April 3, 2026",
+                "body": "Lately, the Nixon Incorporated team has been working on our most ambitious project, Smiggles. Smiggles is an 11,000+ line lightweight operating system that we are developing from sratch. At 1.44 MB, smiggles is a pretty light operating system. If you want to stay updated or take a look at the source code for Smiggles OS, take a look at our github repository and check the official Nixon Incorporated bulletin for more updates."
+            }  
+        ];
+    }
+
+      const rendered = `<div class="news-list">${items.map(newsItemTemplate).join("")}</div>`;
+      track.innerHTML = rendered;
+
+      const needsScroll = track.scrollHeight > rail.clientHeight;
+
+      if (needsScroll) {
+        track.innerHTML = rendered + rendered;
+        rail.classList.add("is-scrolling");
+      } else {
+        rail.classList.remove("is-scrolling");
+      }
+    }
+
+    window.addEventListener("load", async () => {
+      buildCodeReport();
+      await loadNews();
+
+      const reportSection = document.getElementById("code-report");
+      const reportObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCodeReport();
+              reportObserver.disconnect();
+            }
+          });
+        },
+        {
+          threshold: 0.35,
+          rootMargin: "0px 0px -10% 0px"
+        }
+      );
+
+      reportObserver.observe(reportSection);
+
+      setTimeout(() => {
+        intro.classList.add("fade-out");
+      }, 760);
+
+      setTimeout(() => {
+        intro.remove();
+      }, 1180);
+    });
+
+    window.addEventListener("resize", () => {
+      loadNews();
+    });
+  </script>
+</body>
+</html>
